@@ -159,3 +159,10 @@ margin-bottom: 0;
   @media (min-width: 900px) {
     .cards { grid-template-columns: repeat(3, 1fr); }
   }
+
+  @media(max-width:600px) {
+    .header {
+        height: 105vw;
+        clip-path: polygon(0 0, 100% 0, 100% 45vh, 0 100%);
+    }
+  }
