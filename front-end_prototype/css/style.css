@@ -1,0 +1,161 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.7;
+    color: #eee;
+    background-color: black;
+}
+
+.header {
+    height: 30vw;
+    background-image: linear-gradient(to right bottom, rgb(0 0 0), rgb(255 188 0 / 15%)), url(../images/pizzas.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 17vh, 0 100%);
+}
+
+.brand-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.brand { font-size: 20px; }
+
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 30px;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 7.4px;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+   font-size: 14px;
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+.card{
+    box-shadow: 8px 4px 8px 3px rgb(84 84 84 / 39%);
+    padding: 0 2em 1.8em;
+    background-color: #2e2e2e80;
+}
+.card > img{
+    max-width: 100%;
+    min-height: 60%;
+}
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+  }
+.card-title{
+margin-bottom: 0;
+}
+.card-title-decoration{
+    margin-top: 0;
+    margin-bottom: .5em;
+    padding-top: 0;
+}
+.card>p{
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.486);
+}
+.card-price{
+    text-align: right;
+}
+.card-price>span{
+    background-color: white;
+    padding: .4em .4em;
+    border-radius: 60px;
+    color: black;
+    font-weight: 800;
+}
+.card:hover{
+    cursor: pointer;
+    box-shadow: 8px 4px 8px 3px rgba(119, 119, 119, 0.39);
+}
+
+.page-title{
+    text-align: center;
+}
+.page-title>h1{
+    font-size: 3em;
+}
+
+.footer{
+    column-count: 3;
+    column-gap: 12em;
+    column-rule-width: 0.2em;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 2em;
+    margin-top: 5em;
+}
+.footer>a{
+    color: black!important;
+}
+.btn-black {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+   font-size: 14px;
+}
+  @media (min-width: 600px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 900px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+  }
