@@ -1,3 +1,7 @@
+/*
+Custom properties colores principales
+*/
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -8,60 +12,57 @@ body {
 }
 
 .header {
-  height: 30vw;
+  height: 100%;
   background-image: linear-gradient(
       to right bottom,
       rgb(0 0 0),
       rgb(255 188 0 / 15%)
     ),
-    url(../images/pizzas.jpg);
+    url(../images/pizzas.webp);
   background-size: cover;
   background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 17vh, 0 100%);
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 1.25em;
+  left: 1.25em;
 }
 
 .brand {
-  font-size: 20px;
+  font-size: 1.25em;
 }
 
 .text-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: inherit;
   text-align: center;
+  padding-top: 2.25em;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 2.25em;
 }
 
 .heading-primary-main {
   display: block;
-  font-size: 26px;
+  font-size: .65em;
   font-weight: 400;
-  letter-spacing: 5px;
+  letter-spacing: 0.1em;
 }
 
 .heading-primary-sub {
   display: block;
-  font-size: 18px;
+  font-size: .4em;
   font-weight: 700;
-  letter-spacing: 7.4px;
+  letter-spacing: 0.4em;
 }
 
-.btn:link,
-.btn:visited {
+.btn {
   text-transform: uppercase;
   text-decoration: none;
   padding: 10px 20px;
@@ -69,11 +70,13 @@ body {
   border-radius: 100px;
   transition: all 0.2s;
   position: relative;
+  border: none;
+  margin-bottom: 1em;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 13px 13px rgba(255, 254, 254, 0.89);
 }
 
 .btn:active {
@@ -83,7 +86,7 @@ body {
 
 .btn-white {
   background-color: #fff;
-  color: #777;
+  color: rgb(0, 0, 0) !important;
   font-size: 14px;
 }
 
@@ -96,31 +99,39 @@ body {
   background-color: #2e2e2e80;
   text-align: center;
   font-family: arial;
+  font-size: 1.25em;
+  margin-bottom: 1em;
+  overflow: hidden;
+  height: fit-content;
 }
 .card > img {
-  max-width: 100%;
-  min-height: 60%;
+  width: 100%;
+  height: 60%;
 }
 .cards,
-.cards-solo, .comment-section {
-  max-width: 1200px;
+.cards-solo,
+.comment-section,
+.comment-area {
+  max-width: 95%;
   margin: 0 auto;
   display: grid;
   grid-gap: 1rem;
+  background-color: #2e2e2e80;
 }
-.cards-solo{
-    grid-gap: 0em !important;
+.cards-solo {
+  grid-gap: 0em !important;
 }
-.card-solo>card{
-    text-align: center;
-    font-family: arial;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.cards-solo > .card {
+  text-align: center;
+  font-family: arial;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: end;
+  background-color: #2e2e2e80;
+  margin: 0 !important;
 }
-.card-solo>p{
-    padding: 0.5em;
-}
+
 .card-title {
   margin-bottom: 0;
 }
@@ -146,9 +157,13 @@ body {
   color: black;
   font-weight: 800;
 }
-.card:hover {
+.card:hover:not(.card-solo) {
   cursor: pointer;
-  box-shadow: 0px 0px 13px 13px rgb(66 66 66 / 25%);
+  box-shadow: inset 0px 0px 18px 16px rgb(161 161 161 / 9%);
+}
+.card-product {
+  height: -webkit-fill-available;
+  justify-content: space-between;
 }
 
 .page-title {
@@ -157,19 +172,18 @@ body {
 .page-title > h1 {
   font-size: 3em;
 }
-.comment{
-    text-align: center;
-    border-style: solid;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 0;
+.comment {
+  text-align: left;
+  border-style: solid;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  padding: 2.4em;
 }
-.comment-area{
-    width: 80%;
-    text-align: center;
-}
-.comment-area>textarea{
-    width: 100%;
+.comment-area {
+  text-align: center;
+  background-color: #2e2e2e80;
+  grid-auto-flow: column;
 }
 
 .footer {
@@ -215,24 +229,147 @@ body {
 .checked {
   color: orange;
 }
+
+.comment-date {
+  font-size: 0.6em;
+  color: lightgrey;
+  font-style: normal;
+}
+.btn-comment {
+  align-self: end;
+  margin: 0.6em;
+  margin-top: 0;
+  vertical-align: text-bottom;
+  float: right;
+}
+.comment-textarea {
+  padding: 0.5em;
+  width: -webkit-fill-available;
+  margin: 0.4em;
+}
+.comment-h2 {
+  text-align: left;
+  margin-left: 0.5em;
+  margin-bottom: 0.2em;
+}
+.rating {
+  text-align: end;
+}
+.comment > p {
+  color: grey;
+}
+.title-second {
+  font-size: 1.25em;
+  padding: 0.5em;
+}
+
+
+ul.horizontal {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.horizontal li {
+    float: left;
+}
+
+ul.horizontal li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.horizontal li a:hover:not(.active) {
+    background-color: #000;
+}
+
+ul.horizontal li a.active {
+    background-color: #990000;
+}
+
+ul.horizontal2 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+ul.horizontal2 li {
+    float: left;
+}
+
+ul.horizontal2 li a {
+    display: inline-block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.horizontal2 li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+ul.horizontal2 a.active {
+    color: white;
+    background-color: #990000;
+}
+
+form.form {
+    display: flex;
+    flex-direction: column;
+}
+
 @media (min-width: 650px) {
+  /* .cards {
+    grid-template-columns: repeat(2, 1fr);
+  } */
   .cards,
+  .cards-solo,
+  .comment-section,
+  .comment-area {
+    max-width: 88%;
+  }
+}
+
+@media (min-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .cards-solo {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-@media (min-width: 900px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
+  .cards,
+  .cards-solo,
+  .comment-section,
+  .comment-area {
+    max-width: 85%;
   }
 }
 
+
+@media (min-width: 1300px) {
+    .cards {
+      grid-template-columns: repeat(3, 1fr);
+        max-width: 80%;
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .cards {
+      grid-template-columns: repeat(4, 1fr);
+        max-width: 75%;
+    }
+  }
 @media (max-width: 600px) {
-  .header {
-    height: 105vw;
-    clip-path: polygon(0 0, 100% 0, 100% 45vh, 0 100%);
-  }
+
   .footer {
     column-count: 1;
   }
@@ -240,3 +377,6 @@ body {
     text-align: center;
   }
 }
+
+
+

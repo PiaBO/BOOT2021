@@ -1,103 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="images/pizza-favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/pizza-favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Gemini Pizza</title>
 </head>
 
 <body>
-<header class="header">
-	<div class="brand-box">
-		<a class="brand link" href="index.html"><i><b>G</b>emini</i></a>
-	</div>
-	<div class="text-box">
-		<h1 class="heading-primary">
-			<span class="heading-primary-main">Authentic homemade pizzas</span>
-			<span class="heading-primary-sub">Since 2021</span>
-		</h1>
-		<a href="#" class="btn btn-white btn-animated">Log in</a>
-	</div>
-</header>
-<div class="page-title">
-    <h1 class="heading-primary-main">Neapolitan Pizza</h1>
-</div>
-<div class="cards-solo">
-    <div class="card"  onclick="location.href='pizza.html'">
-        <img src="images/nea.jpg" alt="Neapolitan" style="width:100%" >
-    </div>
-    <div class="card"  onclick="location.href='pizza.html'">
-        <p>All our pizzas are made with natural and local ingredients.</p>
-        
-        <p style="color: white; text-align: left; font-size: 1.5em;">Ingredients:</p>
-        <p>Tomatoes, mozzarella from Campania, basil, and extra virgin olive oil</p>
-        <div class="rating">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
+    <header class="header">
+        <div class="brand-box">
+            <a class="brand link" href="indexLog.html"><i><b>G</b>emini</i></a>
         </div>
-        <div class="price"><span>7,50€</span></div>
-        <p><button>Buy</button></p>
-    </div>
-   
-  </div>  
-  <div class="page-title">
-    <h1 class="heading-primary-main" style="font-size: 1.25em;">Your opinion is important</h1>
-</div>
-<div class="comment-area">
-    <form action="">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Write your opinion..."></textarea>
-        <a class="btn btn-white btn-animated">Save</a>
-    </form>
-</div>
-  <div class="comment-section">
-    <div class="comment">
-        <h2>User 1</h2>
-        <p>Fast delivery, and it was delicious!</p>
-        <div class="rating">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
+        <div class="text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary-main">Authentic homemade pizzas</span>
+                <span class="heading-primary-sub">Since 2021</span>
+            </h1>
         </div>
+        <ul class="horizontal">
+            <li><a class="active" href="indexLog.html">MENU</a></li>
+            <li><a href="javascript:void(0)">ADMIN</a></li>
+            <li class="rightli" style="float: right">
+                <a href="index.html">Log out</a>
+            </li>
+        </ul>
+    </header>
+    <div class="page-title">
+        <h1 class="heading-primary-main">Neapolitan Pizza</h1>
     </div>
-    <div class="comment">
-        <h2>User 2</h2>
-        <p>Fast delivery, and it was delicious!</p>
-        <div class="rating">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-        </div>
+    <section class="cards-solo">
+        <article class="card card-solo" onclick="location.href='pizza.html'">
+            <img src="images/nea.webp" alt="Neapolitan" width="300" />
+        </article>
+        <article class="card card-solo card-product" onclick="location.href='pizza.html'">
+            <p>All our pizzas are made with natural and local ingredients.</p>
+            <p class="ingredients-text">Ingredients:</p>
+            <p>
+                Tomatoes, mozzarella from Campania, basil, and extra virgin olive oil
+            </p>
+            <div class="card-footer">
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+                <div class="price"><span>Price: 7,50€</span></div>
+            </div>
+            <button>Buy</button>
+        </article>
+    </section>
+    <div class="page-title title-second">
+        <h1 class="heading-primary-main">Your opinion is important</h1>
     </div>
-    <div class="comment">
-        <h2>User 3</h2>
-        <p>Fast delivery, and it was delicious!</p>
-        <div class="rating">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-        </div>
-    </div>
-  </div>
+    <section class="comment-area">
+        <form action="">
+            <h2 class="comment-h2"><span class="fa fa-edit"></span> comment</h2>
+            <textarea class="comment-textarea" name="" id="" cols="30" rows="10"
+                placeholder="Write your opinion..."></textarea>
+            <button class="btn btn-white btn-animated btn-comment">Send</button>
+        </form>
+    </section>
+    <section class="comment-section">
+        <article class="comment">
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <h2>User 1 <span class="comment-date">- 22/12/2021</span></h2>
+            <p>Fast delivery, and it was delicious!</p>
+        </article>
+        <article class="comment">
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <h2>User 2 <span class="comment-date">- 22/12/2021</span></h2>
+            <p>Fast delivery, and it was delicious!</p>
+        </article>
+        <article class="comment">
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            </div>
+            <h2>User 3 <span class="comment-date">- 22/12/2021</span></h2>
+            <p>Fast delivery, and it was delicious!</p>
+        </article>
+        <article class="comment">
+            <div class="rating">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            </div>
+            <h2>User 4 <span class="comment-date">- 22/12/2021</span></h2>
+            <p>Fast delivery, and it was delicious!</p>
+        </article>
+    </section>
     <footer class="footer">
         <span>
-            <a href="" class="link btn-black btn btn-animated">Add new pizza</a>
+            <a href="" class="link btn-black btn btn-animated">CONTACT</a>
         </span>
         <span class="heading-primary-main">Gemini pizza</span>
-        <span>
-           &copy 2021
-        </span>
+        <span> &copy 2021 </span>
     </footer>
 </body>
+
 </html>
