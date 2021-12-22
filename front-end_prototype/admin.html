@@ -27,21 +27,49 @@
         </ul>
     </header>
     <div class="page-title">
-        <h1 class="heading-primary-main">Your opinion counts</h1>
+        <h1 class="heading-primary-main">Add a pizza</h1>
     </div>
-
     <section class="login">
         <article class="card-login ">
             <form class="form" action="#">
                 <h2>Contact us</h2>
                 <label for="name">Name</label>
                 <input id="name" type="text" placeholder="Name" autofocus/>
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Email" />
-                <label for="sub">Subject</label>
-                <input id="sub" type="text" placeholder="Subject" />
-                <label for="text">Text</label>
-                <textarea id="text" class="input" name="" id="" cols="30" rows="10" placeholder="Some text..."></textarea>
+                <label for="text">Description</label>
+                <textarea id="text" class="input" name="" id="" cols="30" rows="10" placeholder="Description..."></textarea>
+                <label for="ingr">Ingredients</label>
+                <div class="ingredients">
+                    <div class="tag">
+                        <label for="onion"> onion</label>
+                        <input type="checkbox" id="onion" name="onion" value="onion">
+                    </div>
+                    <div class="tag">
+                        <label for="cheese"> cheese</label>
+                        <input type="checkbox" id="cheese" name="cheese" value="cheese">
+                    </div>
+                    <div class="tag">
+                        <label for="sausage"> sausage</label>
+                        <input type="checkbox" id="sausage" name="sausage" value="sausage">
+                    </div>
+                    <div class="tag">
+                        <label for="peperoni"> peperoni</label>
+                        <input type="checkbox" id="peperoni" name="peperoni" value="peperoni">
+                    </div>
+                    <div class="tag">
+                        <label for="ham"> ham</label>
+                        <input type="checkbox" id="ham" name="ham" value="ham">
+                    </div>
+                    <div class="tag">
+                        <label for="tomato"> tomato</label>
+                        <input type="checkbox" id="tomato" name="tomato" value="tomato">
+                    </div>
+                    <div class="tag">
+                        <label for="parmesan"> parmesan</label>
+                        <input type="checkbox" id="parmesan" name="parmesan" value="parmesan">
+                    </div>
+                </div>
+                <label for="myfile">Select image:</label>
+                <input type="file" id="myfile" name="myfile"><br><br>
                 <a class="ink btn-black btn btn-animated  no-margin" onclick="location.href='indexLog.html'">Submit</a>
             </form>
         </article>

@@ -123,7 +123,7 @@ body {
   overflow: hidden;
   height: fit-content;
 }
-input,.input{
+input:not(input[type="checkbox"]),.input{
   width: 98%;
   padding: 1em 1.25em;
   display: inline-block;
@@ -144,14 +144,30 @@ input,.input{
   color: red;
   content: '*';
 }
+.bread{
+  padding: 1em;
+}
 
+.ingredients {
+  max-width: 95%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: start;
+}
+
+.tag{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+ 
 .login{
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
   padding: 1em;
-  line-height: 4em !important;
+  /* line-height: 4em !important; */
 }
 .card-login{
   box-shadow: 8px 4px 8px 3px var(--color-dark);
