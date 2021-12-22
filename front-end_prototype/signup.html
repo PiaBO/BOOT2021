@@ -27,29 +27,33 @@
         </ul>
     </header>
     <div class="page-title">
-        <h1 class="heading-primary-main">Welcome back!</h1>
+        <h1 class="heading-primary-main">Become one of us</h1>
     </div>
 
     <section class="login">
         <article class="card-login ">
             <form class="form" action="#">
-                <h2>Sign in</h2>
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Email" required autofocus/>
-                <label for="password">Password</label>
+                <h2>Sign Up</h2>
+                <label class="required" for="name">Name</label>
+                <input id="name" type="text" placeholder="Name" required/>
+                <label class="required" for="email">Email</label>
+                <input id="email" type="email" placeholder="Email" required/>
+                <label class="required" for="password">Password</label>
                 <input id="password" type="password" placeholder="Password" required/>
-                <a class="link" href="signup.html">Don't have an account?</a>
-                <a class="ink btn-black btn btn-animated" onclick="location.href='indexLog.html'">Sign In</a>
+                <label class="required" for="password2">Confirm password</label>
+                <input id="password2" type="password" placeholder="Confirm Password" required/>
+                <a class="ink btn-black btn btn-animated  no-margin" onclick="location.href='login.html'">Sign Up</a>
+                <a class="link subtext" href="login.html">Do you have an account?</a>
             </form>
         </article>
     </section>
 
 
-    <footer class="footer fixed">
+    <footer class="footer ">
         <span>
             <a href="contact.html" class="link btn-black btn btn-animated">Contact</a>
         </span>
-        <span class="heading-primary-main bigtext">Gemini pizza</span>
+        <span class="heading-primary-main bigtext">Gemini pizza </span>
         <span>
             &copy 2021
         </span>

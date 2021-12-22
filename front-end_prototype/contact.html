@@ -27,29 +27,32 @@
         </ul>
     </header>
     <div class="page-title">
-        <h1 class="heading-primary-main">Welcome back!</h1>
+        <h1 class="heading-primary-main">Your opinion counts</h1>
     </div>
 
     <section class="login">
         <article class="card-login ">
             <form class="form" action="#">
-                <h2>Sign in</h2>
+                <h2>Contact us</h2>
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Name" autofocus/>
                 <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Email" required autofocus/>
-                <label for="password">Password</label>
-                <input id="password" type="password" placeholder="Password" required/>
-                <a class="link" href="signup.html">Don't have an account?</a>
-                <a class="ink btn-black btn btn-animated" onclick="location.href='indexLog.html'">Sign In</a>
+                <input id="email" type="email" placeholder="Email" />
+                <label for="sub">Subject</label>
+                <input id="sub" type="text" placeholder="Subject" />
+                <label for="text">Text</label>
+                <textarea id="text" class="input" name="" id="" cols="30" rows="10" placeholder="Some text..."></textarea>
+                <a class="ink btn-black btn btn-animated  no-margin" onclick="location.href='indexLog.html'">Submit</a>
             </form>
         </article>
     </section>
 
 
-    <footer class="footer fixed">
+    <footer class="footer">
         <span>
             <a href="contact.html" class="link btn-black btn btn-animated">Contact</a>
         </span>
-        <span class="heading-primary-main bigtext">Gemini pizza</span>
+        <span class="heading-primary-main bigtext">Gemini pizza </span>
         <span>
             &copy 2021
         </span>

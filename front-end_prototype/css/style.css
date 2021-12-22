@@ -1,22 +1,27 @@
-/*
-Custom properties colores principales
-*/
+*{
+  --color-dark:rgb(0 0 0);
+  --color-light:rgb(255 188 0 / 15%);
+  --color-white: #eee;
+  --color-card:#2e2e2e80;;
+  --color-card-shadow: rgb(84 84 84 / 0.18);
+
+}
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1em;
   line-height: 1.7;
-  color: #eee;
-  background-color: black;
+  color: var(--color-white);
+  background-color: var(--color-dark);
 }
 
 .header {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      rgb(0 0 0),
-      rgb(255 188 0 / 15%)
+      var(--color-dark),
+      var(--color-light)
     ),
     url(../images/pizzas.webp);
   background-size: cover;
@@ -42,7 +47,7 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
+  color: var(--color-white);
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: 2.25em;
@@ -76,7 +81,7 @@ body {
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0px 0px 13px 13px rgba(255, 254, 254, 0.89);
+  box-shadow: 0px 0px 5px 5px var(--color-dark);
 }
 
 .btn:active {
@@ -94,15 +99,74 @@ body {
   text-decoration: none;
   color: white;
 }
+.link:hover{
+  text-decoration: underline;
+}
+
+.subtext{
+  font-size: .75em;
+}
+
+.bigtext{
+  font-size: 1.5em !important;
+}
+.no-margin{
+  margin: 0 !important;
+}
 .card {
-  box-shadow: 8px 4px 8px 3px rgb(84 84 84 / 0.18);
-  background-color: #2e2e2e80;
+  box-shadow: 8px 4px 8px 3px var(--color-card-shadow);
+  background-color: var(--color-card);
   text-align: center;
   font-family: arial;
   font-size: 1.25em;
   margin-bottom: 1em;
   overflow: hidden;
   height: fit-content;
+}
+input,.input{
+  width: 98%;
+  padding: 1em 1.25em;
+  display: inline-block;
+  margin-bottom: 1em;
+  border: 1px solid var(--color-white);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.form>label {
+  font-size: .8em;
+  align-self: baseline;
+  padding-left: 0.25em;
+  height: fit-content;
+  box-sizing: border-box;
+  height: 2.75em;
+}
+.required::after{
+  color: red;
+  content: '*';
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1em;
+  line-height: 4em !important;
+}
+.card-login{
+  box-shadow: 8px 4px 8px 3px var(--color-dark);
+  background-color: var(--color-card);
+  text-align: center;
+  font-family: arial;
+  font-size: 1.25em;
+  margin-bottom: 1em;
+  overflow: hidden;
+  height: fit-content;
+  width: 55%;
+  box-sizing: border-box;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 25px;
 }
 .card > img {
   width: 100%;
@@ -116,7 +180,7 @@ body {
   margin: 0 auto;
   display: grid;
   grid-gap: 1rem;
-  background-color: #2e2e2e80;
+  background-color: var(--color-card);
 }
 .cards-solo {
   grid-gap: 0em !important;
@@ -128,7 +192,7 @@ body {
   flex-direction: column;
   align-items: center;
   align-self: end;
-  background-color: #2e2e2e80;
+  background-color: var(--color-card);
   margin: 0 !important;
 }
 
@@ -141,20 +205,20 @@ body {
   padding-top: 0;
 }
 .card > h2 {
-  color: #fff;
+  color: var(--color-white) !important;
   text-transform: uppercase;
   backface-visibility: hidden;
 }
 .card > p {
   font-style: italic;
-  color: rgba(255, 255, 255, 0.486);
+  color: var(--color-white);
 }
 
 .card-price > span {
-  background-color: white;
+  background-color:var(--color-white);
   padding: 0.4em 0.4em;
   border-radius: 60px;
-  color: black;
+  color: var(--color-dark);
   font-weight: 800;
 }
 .card:hover:not(.card-solo) {
@@ -182,10 +246,17 @@ body {
 }
 .comment-area {
   text-align: center;
-  background-color: #2e2e2e80;
+  background-color: var(--color-card);
   grid-auto-flow: column;
+  padding: 1em;
+  box-sizing: border-box;
 }
-
+.fixed{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 .footer {
   column-count: 3;
   column-gap: 12em;
@@ -269,7 +340,7 @@ ul.horizontal {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color:  rgba(0, 0, 0, 0.842)
 }
 
 ul.horizontal li {
@@ -352,6 +423,7 @@ form.form {
   .comment-area {
     max-width: 85%;
   }
+
 }
 
 
@@ -360,12 +432,15 @@ form.form {
       grid-template-columns: repeat(3, 1fr);
         max-width: 80%;
     }
+    .card-login{
+      width: 30%;
+    }
   }
 
   @media (min-width: 1800px) {
     .cards {
-      grid-template-columns: repeat(4, 1fr);
-        max-width: 75%;
+      grid-template-columns: repeat(3, 1fr);
+        max-width: 50%;
     }
   }
 @media (max-width: 600px) {
@@ -375,6 +450,19 @@ form.form {
   }
   .card {
     text-align: center;
+  }
+  .card-login{
+    width: 80%;
+  }
+}
+
+@media(max-width: 720px){
+  .header{
+   background-image: linear-gradient(
+      to right bottom,
+      rgb(0 0 0),
+      rgb(255 188 0 / 15%)
+    );
   }
 }
 
