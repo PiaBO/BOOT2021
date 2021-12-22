@@ -35,7 +35,6 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
-
     backface-visibility: hidden;
     margin-bottom: 30px;
 }
@@ -86,9 +85,10 @@ body {
     color: white;
 }
 .card{
-    box-shadow: 8px 4px 8px 3px rgb(84 84 84 / 39%);
-    padding: 0 2em 1.8em;
+    box-shadow: 8px 4px 8px 3px rgb(84 84 84 / .18);
     background-color: #2e2e2e80;
+    text-align: center;
+    font-family: arial;
 }
 .card > img{
     max-width: 100%;
@@ -108,13 +108,16 @@ margin-bottom: 0;
     margin-bottom: .5em;
     padding-top: 0;
 }
+.card>h2{
+    color: #fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+}
 .card>p{
     font-style: italic;
     color: rgba(255, 255, 255, 0.486);
 }
-.card-price{
-    text-align: right;
-}
+
 .card-price>span{
     background-color: white;
     padding: .4em .4em;
@@ -124,7 +127,7 @@ margin-bottom: 0;
 }
 .card:hover{
     cursor: pointer;
-    box-shadow: 8px 4px 8px 3px rgba(119, 119, 119, 0.39);
+    box-shadow: 0px 0px 13px 13px rgb(66 66 66 / 25%);
 }
 
 .page-title{
@@ -152,7 +155,31 @@ margin-bottom: 0;
     color: rgb(255, 255, 255);
    font-size: 14px;
 }
-  @media (min-width: 600px) {
+
+  
+  .price {
+    color: #c9c9c9;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #5c5c5cc7;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  
+  .card button:hover {
+    background-color: #a1a1a1c7;
+  }
+
+  @media (min-width: 650px) {
     .cards { grid-template-columns: repeat(2, 1fr); }
   }
 
@@ -164,5 +191,11 @@ margin-bottom: 0;
     .header {
         height: 105vw;
         clip-path: polygon(0 0, 100% 0, 100% 45vh, 0 100%);
+    }
+    .footer{
+        column-count: 1;
+    }
+    .card{
+        text-align: center;
     }
   }
