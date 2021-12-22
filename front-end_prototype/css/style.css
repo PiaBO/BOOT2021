@@ -102,7 +102,7 @@ body {
   min-height: 60%;
 }
 .cards,
-.cards-solo {
+.cards-solo, .comment-section {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -156,6 +156,20 @@ body {
 }
 .page-title > h1 {
   font-size: 3em;
+}
+.comment{
+    text-align: center;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.comment-area{
+    width: 80%;
+    text-align: center;
+}
+.comment-area>textarea{
+    width: 100%;
 }
 
 .footer {
