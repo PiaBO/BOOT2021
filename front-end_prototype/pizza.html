@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/pizza-favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Gemini Pizza</title>
 </head>
 
@@ -21,16 +22,31 @@
 		<a href="#" class="btn btn-white btn-animated">Log in</a>
 	</div>
 </header>
-    <div class="page-title">
-        <h1 class="heading-primary-main">What would you like to eat?</h1>
+<div class="page-title">
+    <h1 class="heading-primary-main">Neapolitan Pizza</h1>
+    <h1 class="heading-primary-sub">Original taste</h1>
+</div>
+<div class="cards-solo">
+    <div class="card"  onclick="location.href='pizza.html'">
+        <img src="images/nea.jpg" alt="Neapolitan" style="width:100%" >
     </div>
-    <div class="card-solo" href="pizza.html" onclick="location.href='pizza.html'">
-        <h2  class="card-title">Chicago</h2>
-        <hr class="card-title-decoration">
-        <img src="images/chicago.jpg" alt="">
-        <p>Ground beef, sausage, pepperoni, onion, mushrooms, and green peppers, placed underneath the tomato sauce.</p>
-        <div class="card-price"><span>7,50€</span></div>
+    <div class="card"  onclick="location.href='pizza.html'">
+        <p>All our pizzas are made with natural and local ingredients.</p>
+        
+        <p style="color: white; text-align: left; font-size: 1.5em;">Ingredients:</p>
+        <p>Tomatoes, mozzarella from Campania, basil, and extra virgin olive oil</p>
+        <div class="rating">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+        </div>
+        <div class="price"><span>7,50€</span></div>
+        <p><button>Buy</button></p>
     </div>
+   
+  </div>  
     <footer class="footer">
         <span>
             <a href="" class="link btn-black btn btn-animated">Add new pizza</a>
