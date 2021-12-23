@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/pizza-favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" src>
     <title>Gemini Pizza</title>
 </head>
 
@@ -30,18 +31,18 @@
         <article class="card-login ">
             <form class="form" action="#">
                 <h2>Create a new pizza</h2>
-                <label for="name">Name</label>
+                <label for="name" class="underline">Name</label>
                 <input id="name" type="text" placeholder="Name" autofocus/>
-                <label for="text">Description</label>
+                <label for="text" class="underline">Description</label>
                 <textarea id="text" class="input" name="" id="" cols="30" rows="10" placeholder="Description..."></textarea>
-                <label for="ingr">Ingredients</label>
+                <label for="ingr" class="underline">Ingredients</label>
                 <div class="ingredients">
                     <div class="tag">
-                        <label for="onion"> onion</label>
+                        <label for="onion">onion</label>
                         <input type="checkbox" id="onion" name="onion" value="onion">
                     </div>
                     <div class="tag">
-                        <label for="cheese"> cheese</label>
+                        <label for="cheese">cheese</label>
                         <input type="checkbox" id="cheese" name="cheese" value="cheese">
                     </div>
                     <div class="tag">
@@ -65,7 +66,7 @@
                         <input type="checkbox" id="parmesan" name="parmesan" value="parmesan">
                     </div>
                 </div>
-                <label for="myfile">Select image:</label>
+                <label for="myfile" class="underline">Select image</label>
                 <input type="file" id="myfile" name="myfile"><br><br>
                 <a class="ink btn-black btn btn-animated  no-margin" onclick="location.href='indexLog.html'">Submit</a>
             </form>
