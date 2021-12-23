@@ -200,6 +200,9 @@ input:not(input[type="checkbox"]),.input{
 }
 .cards-solo {
   grid-gap: 0em !important;
+  border-radius: .2em;
+  overflow: hidden;
+  width: 50%;
 }
 .cards-solo > .card {
   text-align: center;
@@ -210,6 +213,9 @@ input:not(input[type="checkbox"]),.input{
   align-self: end;
   background-color: var(--color-card);
   margin: 0 !important;
+}
+.cads-solo > .card >img{
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .card-title {
@@ -414,15 +420,18 @@ form.form {
     flex-direction: column;
 }
 
+.underline{
+  text-decoration: underline;
+}
+
 @media (min-width: 650px) {
-  /* .cards {
-    grid-template-columns: repeat(2, 1fr);
-  } */
   .cards,
-  .cards-solo,
   .comment-section,
   .comment-area {
     max-width: 88%;
+  }
+  .cards-solo{
+    width: 75% !important;
   }
 }
 
@@ -431,7 +440,8 @@ form.form {
     grid-template-columns: repeat(2, 1fr);
   }
   .cards-solo {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
+    font-size: 1em !important;
   }
   .cards,
   .cards-solo,
@@ -446,7 +456,7 @@ form.form {
 @media (min-width: 1300px) {
     .cards {
       grid-template-columns: repeat(3, 1fr);
-        max-width: 80%;
+      max-width: 80%;
     }
     .card-login{
       width: 30%;
@@ -456,7 +466,10 @@ form.form {
   @media (min-width: 1800px) {
     .cards {
       grid-template-columns: repeat(3, 1fr);
-        max-width: 50%;
+      max-width: 50%;
+    }
+    .cards-solo{
+      width: 50% !important;
     }
   }
 @media (max-width: 600px) {
@@ -482,5 +495,18 @@ form.form {
   }
 }
 
-
+@media print{
+  body{
+    background-color: white;
+    color: black;
+  }
+  .cards{
+    background-color: white;
+    color: #000;
+    font-size: .5em;
+    grid-template-columns: repeat(3, 1fr);
+    height: 50%;
+  }
+ 
+}
 
