@@ -68,3 +68,18 @@ function validarDNI(){
         alert("incorrecto");
     }
 }
+
+function palindromo(){
+    let pal = prompt("Palindromo: ");
+
+    pal = pal.toLocaleLowerCase().replace(/\s/g,"");
+    let contador = pal.length-1;
+    for (let index = 0; index < pal.length/2; index++) {
+        if(pal[index] == pal[contador]){
+            contador--;
+        }else{
+           return alert("No es un palindromo");
+        }
+    }
+    return alert("Es un palindromo");
+}
