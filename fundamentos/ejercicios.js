@@ -1,5 +1,3 @@
-const { objectify } = require("tslint/lib/utils");
-
 //Sintaxis
 function random(){
     let range = prompt("Dime rango:")
@@ -104,17 +102,22 @@ class Game{
     start() {
         let num = Math.floor(Math.random() * this._range)  
         while(this._attempt){
-            let userNum = prompt("Dime un número: ");
+            let userNum = pedirNumero();
             if (userNum == num) {
-                return alert("Correcto el número era "+num);
+                return mostrarPantalla("Correcto el número era "+num);
             } else if(userNum > num){
-                alert("El número es menor");
+                mostrarPantalla("El número es menor");
             }else{
-                alert("El número es mayor");
+                mostrarPantalla("El número es mayor");
             }
             this._attempt--;
         }
-    
-        return alert("Has perdido")
+        return mostrarPantalla("Has perdido")
     }
+}
+function pedirNumero(){
+    return prompt("Dime un número: ");
+}
+function mostrarPantalla(texto){
+    alert(texto);
 }
