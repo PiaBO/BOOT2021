@@ -8,7 +8,6 @@ function resolver(){
     document.getElementById("result").value = y;
 }
 
-function limpiar()
-{
+function limpiar(){
     document.getElementById("result").value = "";
 }
