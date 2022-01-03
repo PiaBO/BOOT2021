@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="formulario.js"></script>
+    <title>Formulario</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="email">email</label>
+        <input type="email" name="email" id="email">
+        <br>
+        <label for="birthdate">Fecha de nacimiento</label>
+        <input type="date" name="birthdate" id="birthdate">
+        <br>
+        <label for="pwd">Contraseña</label>
+        <input type="password" name="pwd" id="pwd">
+        <br>
+        <label for="pwd2">Repetir contraseña</label>
+        <input type="password" name="pwd2" id="pwd2">
+        <br>
+        <input type="submit" value="Submit" id="btn-enviar" onclick="validate(event)" />
+    </form>
+</body>
+</html>
