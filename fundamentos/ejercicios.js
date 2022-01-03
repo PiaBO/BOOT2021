@@ -1,3 +1,6 @@
+const { objectify } = require("tslint/lib/utils");
+
+//Sintaxis
 function random(){
     let range = prompt("Dime rango:")
 
@@ -82,4 +85,36 @@ function palindromo(){
         }
     }
     return alert("Es un palindromo");
+}
+
+//Objetos
+function createNewGame(range, attempt){
+    let obj = {};
+    obj.range = range;
+    obj.attempt = attempt;
+
+    return obj;
+}
+
+class Game{
+    constructor(range,attempt){
+        this._range = range;
+        this._attempt = attempt;
+    }
+    start() {
+        let num = Math.floor(Math.random() * this._range)  
+        while(this._attempt){
+            let userNum = prompt("Dime un número: ");
+            if (userNum == num) {
+                return alert("Correcto el número era "+num);
+            } else if(userNum > num){
+                alert("El número es menor");
+            }else{
+                alert("El número es mayor");
+            }
+            this._attempt--;
+        }
+    
+        return alert("Has perdido")
+    }
 }
