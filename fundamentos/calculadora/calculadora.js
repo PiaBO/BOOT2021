@@ -91,6 +91,10 @@ class Calculadora {
         getResultado().innerHTML = resultado.substr(0, resultado.length - 1)
     }
 
+    cambioSigno(){
+        getResultado().innerHTML = (-1)*getResultado().innerHTML;
+    }
+
     teclado(tecla){
         console.log(tecla);
         if(tecla.key >= 0 && tecla.key <= 9){
@@ -127,14 +131,26 @@ window.onload = function () {
     getElements(".operation").forEach(btn => btn.addEventListener('click', function (ev) {
         calculadora.teclaOperacion(ev.target.value);
     }));
-    getElement("#limpiar").addEventListener('click', calculadora.limpiar);
+    getElement("#limpiar").addEventListener('click',
+        function(){
+            calculadora.limpiar();
+        }
+    );
     getElement("#igual").addEventListener('click', 
         function(){
             calculadora.igual();
         }
-    
     );
-    getElement("#borrar").addEventListener('click', calculadora.borrar);
+    getElement("#borrar").addEventListener('click', 
+        function(){
+            calculadora.borrar();
+        }
+    );
+    getElement("#cambioSigno").addEventListener('click', 
+    function(){
+        calculadora.cambioSigno();
+    }
+);
     document.onkeyup = function(ev){calculadora.teclado(ev)};
      
 }

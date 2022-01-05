@@ -21,7 +21,7 @@ table{
 }
 
 .result{
-    background-color: #48004887;
+    background-color: #977d8c;
     height: 3em;
     overflow: hidden;
 }
@@ -29,11 +29,9 @@ table{
 h3,p{
     font-size: 1em;
     margin: .2em;
+    text-align: right;
 }
 
-#limpiar, #borrar{
-    height: 2em;
-}
 
 #acumulado{
     color: rgb(238, 238, 238);
