@@ -16,10 +16,12 @@ function getAcumulado(){
 class Calculadora {
     #resultadoPlaceholder;
     #operacionTerminada;
+    #operador;
 
     constructor(){
         this.#resultadoPlaceholder = false;
         this.#operacionTerminada = false;
+        this.#operador = "";
         this.limpiar();
     }
     
@@ -46,7 +48,7 @@ class Calculadora {
         if (this.#resultadoPlaceholder) {
             this.#resultadoPlaceholder = false;
             if (this.#operacionTerminada) {
-                limpiar();
+                this.limpiar();
                 this.#operacionTerminada = false;
             }
             getResultado().innerHTML = num;
@@ -57,6 +59,7 @@ class Calculadora {
 
     teclaOperacion(signoOperacion) {
         let acumulado = getAcumulado().innerHTML;
+        this.#operador = signoOperacion;
         if (acumulado.search("=") != -1) {
             getAcumulado().innerHTML = getResultado().innerHTML+ signoOperacion;
             this.#resultadoPlaceholder = true;
@@ -83,7 +86,7 @@ class Calculadora {
     }
 
     calcularResultado(num){
-        let result = Math.round(eval(num.replace(",", ".")) * 100) / 100;
+        let result = Math.round(this.calcular(num.replace(",", ".")) * 100) / 100;
         return  new String(result).replace(".", ",");
     }
     borrar() {
@@ -95,8 +98,24 @@ class Calculadora {
         getResultado().innerHTML = (-1)*getResultado().innerHTML;
     }
 
+    calcular(operacion){
+        let operar = this.separador(operacion);
+        let result;
+        switch(this.#operador){
+            case "/": result = parseInt(operar[0])/parseInt(operar[1]);
+            break;
+            case "*": result = parseInt(operar[0])*parseInt(operar[1]);
+                break;
+            case "+": result = parseInt(operar[0])+parseInt(operar[1]);
+                break;                    
+            case "-": result = parseInt(operar[0])-parseInt(operar[1]);
+                break;     
+        }
+
+        return result;
+    }
+
     teclado(tecla){
-        console.log(tecla);
         if(tecla.key >= 0 && tecla.key <= 9){
             this.teclaNumero(tecla.key);
         }else{

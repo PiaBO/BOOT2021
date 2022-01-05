@@ -7,7 +7,13 @@ body, input{
     padding: 0 0.35em;
     align-items: center;
 }
-
+input{
+    cursor: pointer;
+}
+input:hover{
+    cursor: pointer;
+    background-color: #4c1e4cb8;
+}
 body{
     font-family: "Lato", sans-serif;
     background-color: rgba(114, 53, 106, 0.569);
