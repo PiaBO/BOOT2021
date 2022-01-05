@@ -1,5 +1,5 @@
-var resultado;
-var resuelto;
+var resultadoPlaceholder;
+var operacionTerminada;
 
 function getElement(item){
     return document.querySelector(item);
@@ -14,11 +14,11 @@ function limpiar(){
 }
 
 function teclaNumero(num){
-    if(resultado){
-        resultado = false;
-        if(resuelto){
-             limpiar();
-            resuelto = false;
+    if(resultadoPlaceholder){
+        resultadoPlaceholder = false;
+        if(operacionTerminada){
+            limpiar();
+            operacionTerminada = false;
         }
         getElement("#resultado").innerHTML = num;
     }else{
@@ -26,41 +26,55 @@ function teclaNumero(num){
     }
 }
 
-function teclaOperacion(operation){
-    let operacion = getElement("#acumulado").innerHTML + getElement("#resultado").innerHTML;
-    let arrOperacion = separador(operacion);
-    resultado = true;
+function teclaOperacion(signoOperacion){
+    let acumulado = getElement("#acumulado").innerHTML;
 
-    if(arrOperacion.length > 1){
-        let result = Math.round(eval(operacion.replace(",",".")) * 100) / 100;
-        getElement("#resultado").innerHTML = new String(result).replace(".",",");
-        getElement("#acumulado").innerHTML = getElement("#resultado").innerHTML + operation;
-
-        resuelto = true;
+    if(acumulado.search("=")!=-1){
+       getElement("#acumulado").innerHTML = getElement("#resultado").innerHTML + signoOperacion;
+       resultadoPlaceholder = true;
+       operacionTerminada = false;
     }else{
-        getElement("#acumulado").innerHTML += getElement("#resultado").innerHTML + operation;
+        let operacion = acumulado + getElement("#resultado").innerHTML;
+        let arrOperacion = separador(operacion);
+        resultadoPlaceholder = true;
+        if(arrOperacion.length > 1){
+            let result = Math.round(eval(operacion.replace(",",".")) * 100) / 100;
+            getElement("#resultado").innerHTML = new String(result).replace(".",",");
+            getElement("#acumulado").innerHTML = getElement("#resultado").innerHTML + signoOperacion;
+
+            operacionTerminada = false;
+        }else{
+            getElement("#acumulado").innerHTML += getElement("#resultado").innerHTML + signoOperacion;
+        }        
     }
+
+
 }
 
 function igual(){
-    if(!resuelto){
-        let operacion = getElement("#acumulado").innerHTML + getElement("#resultado").innerHTML;
-        getElement("#acumulado").innerHTML += getElement("#resultado").innerHTML + "=";
-        let result = Math.round(eval(operacion.replace(",",".")) * 100) / 100;
-        getElement("#resultado").innerHTML = new String(result).replace(".",",");
+    if(!operacionTerminada){
+        let acumulado = getElement("#acumulado").innerHTML;
+        let arrOperacion = separador(acumulado);
+        if(arrOperacion.length > 1){
+            let operacion = getElement("#acumulado").innerHTML + getElement("#resultado").innerHTML;
+            getElement("#acumulado").innerHTML += getElement("#resultado").innerHTML + "=";
+            let result = Math.round(eval(operacion.replace(",",".")) * 100) / 100;
+            getElement("#resultado").innerHTML = new String(result).replace(".",",");
+        }
+        operacionTerminada = true;
+        resultadoPlaceholder = true;
+    }else{
         
-        resuelto = true;
-        resultado = true;
     }
 }
 
 function separador(str){
-    let arry = new String(str.split('+').join(', ').split('-').join(', ').split('/').join(', ').split('*'));
+    let arry = new String(str.split('+').join(', ').split('-').join(', ').split('/').join(', ').split('*').join(', ').split('='));
     return arry.split(",");
 }
 window.onload=function(){
-    resultado = false;
-    resuelto = false;
+    resultadoPlaceholder = false;
+    operacionTerminada = false;
     limpiar();
     getElements(".num").forEach(btn => btn.addEventListener('click', function(ev){
         teclaNumero(ev.target.value);
