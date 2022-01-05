@@ -72,6 +72,12 @@ function separador(str){
     let arry = new String(str.split('+').join(', ').split('-').join(', ').split('/').join(', ').split('*').join(', ').split('='));
     return arry.split(",");
 }
+
+function borrar(){
+    let resultado = getElement("#resultado").innerHTML;
+    getElement("#resultado").innerHTML = resultado.substr(0,resultado.length-1)
+}
+
 window.onload=function(){
     resultadoPlaceholder = false;
     operacionTerminada = false;
@@ -84,5 +90,5 @@ window.onload=function(){
     }));
     getElement("#limpiar").addEventListener('click', limpiar);
     getElement("#igual").addEventListener('click', igual);
-
+    getElement("#borrar").addEventListener('click', borrar);
 }
