@@ -5,10 +5,11 @@ body, input{
     background-color: #360a36ba;
     border: none;
     padding: 0 0.5em;
+    align-items: center;
 }
 
 body{
-
+    font-family: "Lato", sans-serif;
     background-color: rgba(114, 53, 106, 0.569);
 }
 table{
