@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="game.js"></script>
-    <link rel="stylesheet" href="game.css">
     <title>Adivina el número</title>
 </head>
 <body>
@@ -19,13 +18,13 @@
     <section class="game">
         <h2>¿Cuál es el número?</h2>
         <label for="userNum">El número es...</label> <input type="number" name="" id="userNum" min="1">
-        <label for="attempts">Intentos restantes: <span id="attText"></span> </label> 
+        <p for="attempts">Intentos restantes: <p id="attText"></p> </p> 
         <br>
+        <h3 id="gameInfo"></h3>
         <input type="submit" value="Jugar" id="check">
         <br>
         <input type="submit" value="Reintentar" id="restart">
-        <input type="submit" value="Atrás" id="back">
-
+        <input type="submit" value="Volver atrás" id="back">
     </section>
 </body>
 </html>

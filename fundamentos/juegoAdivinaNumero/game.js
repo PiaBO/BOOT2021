@@ -1,23 +1,28 @@
-function $(item){
+var currentGame;
+
+function getElement(item){
     return document.querySelector(item);
 }
 
 class Game{
-    #num;
     #maxAttempts;
     #range;
-    #attempt
+    #attempt;
+    #text;
+    #num;
     constructor(range,attempts){
         this.#range = range;
         this.#maxAttempts = attempts;
+        this.#num;
         this.init();
     }
     init(){
-        this.#num = Math.floor(Math.random() * this.#range);
-        this.#attempt = 1;
+        this.#attempt = 0;
+        this.#num = Math.floor(Math.random() * this.#range.value);
     }
     check(userNum) {
-        if(this.#attempt > 0 && this.#attempt < this.#maxAttempts){
+        if(this.#attempt >= 0 && this.#attempt < this.#maxAttempts.value){
+            this.#attempt++;
             if (userNum == this.#num) {
                 return mostrarPantalla("Correcto el número era "+this.#num);
             } else if(userNum > this.#num){
@@ -29,30 +34,58 @@ class Game{
             return mostrarPantalla("Has perdido")
         }
     }
+
+    get getAttempts(){
+
+        return this.#maxAttempts.value - this.#attempt;
+    }
 }
-function pedirNumero(){
-    return prompt("Dime un número: ");
-}
+
 function mostrarPantalla(texto){
-    alert(texto);
+   getElement('#gameInfo').innerHTML = texto;
 }
 
 function gameSettings(){
-    console.log("click")
-    let range = $('#range').value;
-    let attempts = $('#attempts').value;
+    let range = getElement('#range').value;
+    let attempts = getElement('#attempts').value;
 
     if(range > 0 && attempts > 0){
-        new Game(range,attempts);
-        $('.gameSettings').style.display = "none";
-        $('.game').style.display = "block";
+        startGame();
     }
+}
 
+function startGame(){
+    currentGame = new Game(range,attempts);
+    getElement('.gameSettings').style.display = "none";
+    getElement('.game').style.display = "block";
+    getElement('#attText').innerHTML = currentGame.getAttempts;
+    getElement('#gameInfo').innerHTML = "";
+    getElement('#attText').innerHTML = currentGame.getAttempts;
+    getElement('#userNum').value = "";
+}
+
+function checkUserNum(){
+    currentGame.check(getElement('#userNum').value);
+    if(currentGame.getAttempts > 0)
+        getElement('#attText').innerHTML = currentGame.getAttempts;
+}
+
+function restart(){
+    currentGame.init();
+    startGame();
+}
+
+function back(){
+    getElement('.gameSettings').style.display = "block";
+    getElement('.game').style.display = "none";
 }
 
 window.onload=function(){
-    $("#play").addEventListener('click', gameSettings);
-    $('.gameSettings').style.display = "block";
-    $('.game').style.display = "none";
+    getElement('.gameSettings').style.display = "block";
+    getElement('.game').style.display = "none";
+    getElement("#play").addEventListener('click', gameSettings);
+    getElement("#check").addEventListener('click', checkUserNum);
+    getElement("#restart").addEventListener('click', restart);
+    getElement("#back").addEventListener('click', back);
 }
 
