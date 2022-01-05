@@ -8,13 +8,18 @@ body, input{
 }
 
 body{
-    display: flex;
-    justify-content: center;
+
     background-color: rgba(114, 53, 106, 0.569);
+}
+table{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .result{
-    background-color: #4c1e4c8f;
+    background-color: #48004887;
     height: 3em;
     overflow: hidden;
 }
@@ -30,4 +35,7 @@ h3,p{
 
 #acumulado{
     color: rgb(238, 238, 238);
+}
+.num:not(.coma){
+    background-color: #4c1e4c8f;
 }
