@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="game.js"></script>
+    <link rel="stylesheet" href="game.css">
+    <title>Adivina el número</title>
+</head>
+<body>
+    <h1>El número mágico</h1>
+    <section class="gameSettings">
+        <h2>Ajustes del juego: </h2>
+        <label for="range">Un número entre 0 y ...</label> <input type="number" name="" id="range" min="1">
+        <label for="attempts">Número de intentos</label> <input type="number" name="" id="attempts" min="1">
+        <br>
+        <input type="submit" value="Jugar" id="play">
+    </section>
+    <section class="game">
+        <h2>¿Cuál es el número?</h2>
+        <label for="userNum">El número es...</label> <input type="number" name="" id="userNum" min="1">
+        <label for="attempts">Intentos restantes: <span id="attText"></span> </label> 
+        <br>
+        <input type="submit" value="Jugar" id="check">
+        <br>
+        <input type="submit" value="Reintentar" id="restart">
+        <input type="submit" value="Atrás" id="back">
+
+    </section>
+</body>
+</html>

@@ -95,12 +95,13 @@ function createNewGame(range, attempt){
 }
 
 class Game{
+
     constructor(range,attempt){
         this._range = range;
         this._attempt = attempt;
     }
-    start() {
-        let num = Math.floor(Math.random() * this._range)  
+    check(userNum) {
+        num = Math.floor(Math.random() * this._range);
         while(this._attempt){
             let userNum = pedirNumero();
             if (userNum == num) {
