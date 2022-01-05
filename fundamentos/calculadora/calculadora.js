@@ -90,6 +90,32 @@ class Calculadora {
         let resultado = getResultado().innerHTML;
         getResultado().innerHTML = resultado.substr(0, resultado.length - 1)
     }
+
+    teclado(tecla){
+        console.log(tecla);
+        if(tecla.key >= 0 && tecla.key <= 9){
+            this.teclaNumero(tecla.key);
+        }else{
+            switch(tecla.key){
+                case "Backspace": this.borrar();
+                    break;
+                case "Delete": this.limpiar();
+                    break;
+                case "/": this.teclaOperacion(tecla.key);
+                    break;
+                case "*": this.teclaOperacion(tecla.key);
+                    break;
+                case "+": this.teclaOperacion(tecla.key);
+                    break;                    
+                case "-": this.teclaOperacion(tecla.key);
+                    break;            
+                case "Enter": this.igual();
+                    break;    
+                case ",":this.teclaNumero(tecla.key);
+                    break;             
+            }
+        }
+    }
     
 }
 
@@ -109,4 +135,6 @@ window.onload = function () {
     
     );
     getElement("#borrar").addEventListener('click', calculadora.borrar);
+    document.onkeyup = function(ev){calculadora.teclado(ev)};
+     
 }
