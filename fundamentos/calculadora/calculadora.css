@@ -1,0 +1,33 @@
+body, input{
+    font-size: 2em;
+    min-width: 100%;
+    color: white;
+    background-color: #360a36ba;
+    border: none;
+    padding: 0 0.5em;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(114, 53, 106, 0.569);
+}
+
+.result{
+    background-color: #4c1e4c8f;
+    height: 3em;
+    overflow: hidden;
+}
+
+h3,p{
+    font-size: 1em;
+    margin: .2em;
+}
+
+#limpiar{
+    height: 2em;
+}
+
+#acumulado{
+    color: rgb(238, 238, 238);
+}
