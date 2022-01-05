@@ -43,13 +43,15 @@ function teclaOperacion(operation){
 }
 
 function igual(){
-    let operacion = getElement("#acumulado").innerHTML + getElement("#resultado").innerHTML;
-    getElement("#acumulado").innerHTML += getElement("#resultado").innerHTML + "=";
-    let result = Math.round(eval(operacion.replace(",",".")) * 100) / 100;
-    getElement("#resultado").innerHTML = new String(result).replace(".",",");
-    
-    resuelto = true;
-    resultado = true;
+    if(!resuelto){
+        let operacion = getElement("#acumulado").innerHTML + getElement("#resultado").innerHTML;
+        getElement("#acumulado").innerHTML += getElement("#resultado").innerHTML + "=";
+        let result = Math.round(eval(operacion.replace(",",".")) * 100) / 100;
+        getElement("#resultado").innerHTML = new String(result).replace(".",",");
+        
+        resuelto = true;
+        resultado = true;
+    }
 }
 
 function separador(str){
