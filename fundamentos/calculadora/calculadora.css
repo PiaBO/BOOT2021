@@ -4,7 +4,7 @@ body, input{
     color: white;
     background-color: #360a36ba;
     border: none;
-    padding: 0 0.5em;
+    padding: 0 0.35em;
     align-items: center;
 }
 
@@ -17,6 +17,7 @@ table{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    background-color: beige;
 }
 
 .result{
