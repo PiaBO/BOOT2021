@@ -23,6 +23,7 @@ class Calculadora {
         this.#operacionTerminada = false;
         this.#operador = "";
         this.limpiar();
+        getResultado().innerHTML = "0";
     }
     
     limpiar() {
@@ -33,7 +34,7 @@ class Calculadora {
     igual() {
         if(!this.#operacionTerminada){
             let acumulado = getAcumulado().innerHTML;
-            let arrOperacion = this.separador(acumulado);
+            let arrOperacion = this.separador(acumulado.replace(",", "."));
             if (arrOperacion.length > 1) {
                 let operacion = getAcumulado().innerHTML+ getResultado().innerHTML;
                 getAcumulado().innerHTML += getResultado().innerHTML+ "=";
@@ -53,7 +54,11 @@ class Calculadora {
             }
             getResultado().innerHTML = num;
         } else {
-            getResultado().innerHTML+= num;
+            if(getResultado().innerHTML === '0'){
+                getResultado().innerHTML = num;
+            }else{
+                getResultado().innerHTML+= num;
+            }
         }
     }
 
@@ -81,6 +86,7 @@ class Calculadora {
 
 
     separador(str) {
+        str = str.replace(",", ".");
         let arry = new String(str.split('+').join(', ').split('-').join(', ').split('/').join(', ').split('*').join(', ').split('='));
         return arry.split(",");
     }
@@ -91,6 +97,8 @@ class Calculadora {
     }
     borrar() {
         let resultado = getResultado().innerHTML;
+        
+        if(resultado != '0')
         getResultado().innerHTML = resultado.substr(0, resultado.length - 1)
     }
 
@@ -102,13 +110,13 @@ class Calculadora {
         let operar = this.separador(operacion);
         let result;
         switch(this.#operador){
-            case "/": result = parseInt(operar[0])/parseInt(operar[1]);
+            case "/": result = parseFloat(operar[0])/parseFloat(operar[1]);
             break;
-            case "*": result = parseInt(operar[0])*parseInt(operar[1]);
+            case "*": result = parseFloat(operar[0])*parseFloat(operar[1]);
                 break;
-            case "+": result = parseInt(operar[0])+parseInt(operar[1]);
+            case "+": result = parseFloat(operar[0])+parseFloat(operar[1]);
                 break;                    
-            case "-": result = parseInt(operar[0])-parseInt(operar[1]);
+            case "-": result = parseFloat(operar[0])-parseFloat(operar[1]);
                 break;     
         }
 
