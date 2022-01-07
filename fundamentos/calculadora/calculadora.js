@@ -27,7 +27,7 @@ class Calculadora {
     }
     
     limpiar() {
-        getResultado().innerHTML = "";
+        getResultado().innerHTML = "0";
         getAcumulado().innerHTML = "";
     }
 
@@ -122,32 +122,7 @@ class Calculadora {
 
         return result;
     }
-
-    teclado(tecla){
-        if(tecla.key >= 0 && tecla.key <= 9){
-            this.teclaNumero(tecla.key);
-        }else{
-            switch(tecla.key){
-                case "Backspace": this.borrar();
-                    break;
-                case "Delete": this.limpiar();
-                    break;
-                case "/": this.teclaOperacion(tecla.key);
-                    break;
-                case "*": this.teclaOperacion(tecla.key);
-                    break;
-                case "+": this.teclaOperacion(tecla.key);
-                    break;                    
-                case "-": this.teclaOperacion(tecla.key);
-                    break;            
-                case "Enter": this.igual();
-                    break;    
-                case ",":this.teclaNumero(tecla.key);
-                    break;             
-            }
-        }
-    }
-    
+   
 }
 
 window.onload = function () {
@@ -178,6 +153,31 @@ window.onload = function () {
         calculadora.cambioSigno();
     }
 );
-    document.onkeyup = function(ev){calculadora.teclado(ev)};
-     
+    
+    document.body.addEventListener('keyup', function(ev){teclado(ev);});
+
+    function teclado(tecla){
+        if(tecla.key >= 0 && tecla.key <= 9){
+            calculadora.teclaNumero(tecla.key);
+        }else{
+            switch(tecla.key){
+                case "Backspace": calculadora.borrar();
+                    break;
+                case "Delete": calculadora.limpiar();
+                    break;
+                case "/": calculadora.teclaOperacion(tecla.key);
+                    break;
+                case "*": calculadora.teclaOperacion(tecla.key);
+                    break;
+                case "+": calculadora.teclaOperacion(tecla.key);
+                    break;                    
+                case "-": calculadora.teclaOperacion(tecla.key);
+                    break;            
+                case "Enter": calculadora.igual();
+                    break;    
+                case ",":calculadora.teclaNumero(tecla.key);
+                    break;             
+            }
+        }
+    }
 }
