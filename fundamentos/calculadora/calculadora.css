@@ -1,47 +1,70 @@
-body, input{
-    font-size: 2em;
-    min-width: 100%;
-    color: white;
-    background-color: #360a36ba;
-    border: none;
-    padding: 0 0.35em;
-    align-items: center;
+*{
+    --color-body:rgba(114, 53, 106, 0.569);
+    --color-font:white;
+    --color-font-acumulado:rgb(238, 238, 238);
+    --color-fondo-tabla:beige;
+    --color-fondo-operaciones:#360a36ba;
+    --color-fondo-numeros:#4c1e4c8f;
+    --color-fondo-resultado:#977d8c;
+
 }
-input{
-    cursor: pointer;
+body,
+input {
+  font-size: 2em;
+  min-width: 100%;
+  color: var(--color-font);
+  background-color: var(--color-fondo-operaciones);
+  border: none;
+  padding: 0 0.35em;
+  align-items: center;
 }
-input:hover{
-    cursor: pointer;
-    background-color: #4c1e4cb8;
+input {
+  cursor: pointer;
+  border: 3px solid transparent;
 }
-body{
-    font-family: "Lato", sans-serif;
-    background-color: rgba(114, 53, 106, 0.569);
+input:hover {
+  cursor: pointer;
+  animation-name: animacion;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
-table{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: beige;
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--color-body);
+}
+table {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-fondo-tabla);
 }
 
-.result{
-    background-color: #977d8c;
-    height: 3em;
-    overflow: hidden;
+.result {
+  background-color: var(--color-fondo-resultado);
+  height: 3em;
+  overflow: hidden;
+  border: 2px solid beige;
 }
 
-h3,p{
-    font-size: 1em;
-    margin: .2em;
-    text-align: right;
+h3,
+p {
+  font-size: 1em;
+  margin: 0.2em;
+  text-align: right;
 }
 
+#acumulado {
+  color: var(--color-font-acumulado);
+}
+.num:not(.coma) {
+  background-color: var(--color-fondo-numeros);
+}
 
-#acumulado{
-    color: rgb(238, 238, 238);
-}
-.num:not(.coma){
-    background-color: #4c1e4c8f;
-}
+@keyframes animacion {
+    0%   {border-top-color: var(--color-fondo-tabla);}
+    25%  {border-right-color: var(--color-fondo-tabla);}
+    50%  {border-bottom-color: var(--color-fondo-tabla);}
+    90%  {border-left-color: var(--color-fondo-tabla);}
+    100% {border-color: var(--color-fondo-tabla);}
+  }

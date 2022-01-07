@@ -17,29 +17,39 @@ class Calculadora {
     #resultadoPlaceholder;
     #operacionTerminada;
     #operador;
+    #resultado;
+    #acumulado;
 
-    constructor(){
+    constructor(resultado, acumulado){
         this.#resultadoPlaceholder = false;
         this.#operacionTerminada = false;
         this.#operador = "";
+        this.setResultado = resultado;
+        this.setAcumulado = acumulado;
+        this.#resultado = "0";
+        this.#acumulado = "";
         this.limpiar();
-        getResultado().innerHTML = "0";
+        this.setResultado("0");
     }
     
     limpiar() {
-        getResultado().innerHTML = "0";
-        getAcumulado().innerHTML = "";
+        this.#resultado = "0";
+        this.#acumulado = "";
+        this.setResultado(this.#resultado);
+        this.setAcumulado(this.#acumulado);
     }
 
     igual() {
         if(!this.#operacionTerminada){
-            let acumulado = getAcumulado().innerHTML;
+            let acumulado = this.#acumulado;
             let arrOperacion = this.separador(acumulado.replace(",", "."));
             if (arrOperacion.length > 1) {
-                let operacion = getAcumulado().innerHTML+ getResultado().innerHTML;
-                getAcumulado().innerHTML += getResultado().innerHTML+ "=";
+                let operacion = this.#acumulado+ this.#resultado;
+                this.#acumulado += this.#resultado+ "=";
+                this.setAcumulado(this.#acumulado);
                 let result = this.calcularResultado(operacion);
-                getResultado().innerHTML = result;
+                this.#resultado = result;
+                this.setResultado(result);
             }
         }
         this.#operacionTerminada = true;
@@ -52,38 +62,42 @@ class Calculadora {
                 this.limpiar();
                 this.#operacionTerminada = false;
             }
-            getResultado().innerHTML = num;
+            this.#resultado = num;
         } else {
-            if(getResultado().innerHTML === '0'){
-                getResultado().innerHTML = num;
+            if(this.#resultado === '0'){
+                this.#resultado = num;
+                this.setResultado(num);
             }else{
-                getResultado().innerHTML+= num;
+                this.#resultado+= num;
             }
         }
+        this.setResultado(this.#resultado);
+
     }
 
     teclaOperacion(signoOperacion) {
-        let acumulado = getAcumulado().innerHTML;
+        let acumulado = this.#acumulado;
         this.#operador = signoOperacion;
-        if (acumulado.search("=") != -1) {
-            getAcumulado().innerHTML = getResultado().innerHTML+ signoOperacion;
+        if (acumulado.search("=") != -1 || !(acumulado[acumulado.length - 1] >= 0 && acumulado[acumulado.length - 1] <= 9)) {
+            this.#acumulado = this.#resultado + signoOperacion;
             this.#resultadoPlaceholder = true;
             this.#operacionTerminada = false;
         } else {
-            let operacion = acumulado + getResultado().innerHTML;
+            let operacion = acumulado + this.#resultado;
             let arrOperacion = this.separador(operacion);
             this.#resultadoPlaceholder = true;
             if (arrOperacion.length > 1) {
                 let result = this.calcularResultado(operacion);
-                getResultado().innerHTML = result;
-                getAcumulado().innerHTML = result + signoOperacion;
+                this.#resultado = result;
+                this.#acumulado = result + signoOperacion;
                 this.#operacionTerminada = false;
             } else {
-                getAcumulado().innerHTML+= getResultado().innerHTML+ signoOperacion;
+                this.#acumulado+= this.#resultado+ signoOperacion;
             }
         }
+        this.setResultado(this.#resultado);
+        this.setAcumulado(this.#acumulado);
     }
-
 
     separador(str) {
         str = str.replace(",", ".");
@@ -96,14 +110,17 @@ class Calculadora {
         return  new String(result).replace(".", ",");
     }
     borrar() {
-        let resultado = getResultado().innerHTML;
+        let resultado = this.#resultado;
         
         if(resultado != '0')
-        getResultado().innerHTML = resultado.substr(0, resultado.length - 1)
+        this.#resultado = resultado.substr(0, resultado.length - 1)
+
+        this.setResultado(this.#resultado);
     }
 
     cambioSigno(){
-        getResultado().innerHTML = (-1)*getResultado().innerHTML;
+        this.#resultado = (-1)*this.#resultado;
+        this.setResultado(this.#resultado);
     }
 
     calcular(operacion){
@@ -126,7 +143,14 @@ class Calculadora {
 }
 
 window.onload = function () {
-    var calculadora = new Calculadora();
+    let resultado = document.querySelector('#resultado');
+    let acumulado = document.querySelector('#acumulado');
+
+    let calculadora = new Calculadora(
+        value => resultado.textContent = value, 
+		value => acumulado.textContent = value
+    );
+
     getElements(".num").forEach(btn => btn.addEventListener('click', function (ev) {
         calculadora.teclaNumero(ev.target.value);
     }));
