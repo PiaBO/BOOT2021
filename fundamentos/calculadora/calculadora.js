@@ -1,18 +1,3 @@
-
-function getElement(item) {
-    return document.querySelector(item);
-}
-function getElements(item) {
-return document.querySelectorAll(item);
-}
-
-function getResultado(){
-    return getElement("#resultado");
-}
-function getAcumulado(){
-    return getElement("#acumulado");
-}
-
 class Calculadora {
     #resultadoPlaceholder;
     #operacionTerminada;
@@ -151,28 +136,28 @@ window.onload = function () {
 		value => acumulado.textContent = value
     );
 
-    getElements(".num").forEach(btn => btn.addEventListener('click', function (ev) {
+     document.querySelectorAll(".num").forEach(btn => btn.addEventListener('click', function (ev) {
         calculadora.teclaNumero(ev.target.value);
     }));
-    getElements(".operation").forEach(btn => btn.addEventListener('click', function (ev) {
+     document.querySelectorAll(".operation").forEach(btn => btn.addEventListener('click', function (ev) {
         calculadora.teclaOperacion(ev.target.value);
     }));
-    getElement("#limpiar").addEventListener('click',
+    document.querySelector("#limpiar").addEventListener('click',
         function(){
             calculadora.limpiar();
         }
     );
-    getElement("#igual").addEventListener('click', 
+    document.querySelector("#igual").addEventListener('click', 
         function(){
             calculadora.igual();
         }
     );
-    getElement("#borrar").addEventListener('click', 
+    document.querySelector("#borrar").addEventListener('click', 
         function(){
             calculadora.borrar();
         }
     );
-    getElement("#cambioSigno").addEventListener('click', 
+    document.querySelector("#cambioSigno").addEventListener('click', 
     function(){
         calculadora.cambioSigno();
     }

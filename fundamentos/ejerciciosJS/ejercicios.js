@@ -1,9 +1,9 @@
-//Sintaxis
-function random(){
-    let range = prompt("Dime rango:")
-
-    alert(Math.floor(Math.random() * range)); 
-}
+function random(range){
+    // let range = prompt("Dime rango:")
+    //alert(Math.floor(Math.random() * range)); 
+    let res = Math.floor(Math.random() * range);
+    return res;
+};
 
 function adivinarNumero(){
     let num = Math.floor(Math.random() * 100);
@@ -24,17 +24,17 @@ function adivinarNumero(){
     return alert("Has perdido")
 }
 
-function pedirArray(){
-    let len = prompt("Length: ");
-    let val = prompt("Value: ");
-    createArray(len,val);
+function pedirArray(length, value){
+    let len = length;
+    let val = value;
+    return createArray(len,val);
 }
 
 function createArray(length, value){
     let array = [];
     array.length = length;
     array.fill(value);
-    alert(array);
+    return array;
 }
 function pedirPrimos(){
     let num = prompt("Di un numero: ");
@@ -43,12 +43,12 @@ function pedirPrimos(){
 
 function primo(num){
     let array = [];
-    for (let index = 0; index < num; index++) {
+    for (let index = 2; index < num; index++) {
         if(comprobarPrimo(index) === true)
             array.push(index);
     }    
 
-    alert(array);
+    return(array);
 }
 
 function comprobarPrimo(num){
@@ -59,30 +59,32 @@ function comprobarPrimo(num){
     return true;
 }
 
-function validarDNI(){
-    let dni = prompt("dni: ");
+function validarDNI(dni){
     let expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
 
     if(expresion_regular_dni.test(dni)){
-        alert("correcto");
+        return true;
     }else{
-        alert("incorrecto");
+        return false;
     }
 }
 
-function palindromo(){
-    let pal = prompt("Palindromo: ");
+function palindromo(p){
+    //let pal = prompt("Palindromo: ");
 
-    pal = pal.toLocaleLowerCase().replace(/\s/g,"");
+    let pal = p.toLocaleLowerCase().replace(/\s/g,"");
     let contador = pal.length-1;
+    if(contador < 1)
+        return false;
+
     for (let index = 0; index < pal.length/2; index++) {
         if(pal[index] == pal[contador]){
             contador--;
         }else{
-           return alert("No es un palindromo");
+           return false;
         }
     }
-    return alert("Es un palindromo");
+    return true;
 }
 
 //Objetos
@@ -94,31 +96,32 @@ function createNewGame(range, attempt){
     return obj;
 }
 
-class Game{
+// ../juegoAdivinaNumero/game.js
+// class Game{
 
-    constructor(range,attempt){
-        this._range = range;
-        this._attempt = attempt;
-    }
-    check(userNum) {
-        num = Math.floor(Math.random() * this._range);
-        while(this._attempt){
-            let userNum = pedirNumero();
-            if (userNum == num) {
-                return mostrarPantalla("Correcto el número era "+num);
-            } else if(userNum > num){
-                mostrarPantalla("El número es menor");
-            }else{
-                mostrarPantalla("El número es mayor");
-            }
-            this._attempt--;
-        }
-        return mostrarPantalla("Has perdido")
-    }
-}
-function pedirNumero(){
-    return prompt("Dime un número: ");
-}
-function mostrarPantalla(texto){
-    alert(texto);
-}
+//     constructor(range,attempt){
+//         this._range = range;
+//         this._attempt = attempt;
+//     }
+//     check(userNum) {
+//         num = Math.floor(Math.random() * this._range);
+//         while(this._attempt){
+//             let userNum = pedirNumero();
+//             if (userNum == num) {
+//                 return mostrarPantalla("Correcto el número era "+num);
+//             } else if(userNum > num){
+//                 mostrarPantalla("El número es menor");
+//             }else{
+//                 mostrarPantalla("El número es mayor");
+//             }
+//             this._attempt--;
+//         }
+//         return mostrarPantalla("Has perdido")
+//     }
+// }
+// function pedirNumero(){
+//     return prompt("Dime un número: ");
+// }
+// function mostrarPantalla(texto){
+//     alert(texto);
+// }
