@@ -8,14 +8,16 @@ import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core/services/logger.serv
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonComponentModule } from './common-component';
-import { CommonServicesModule } from './common-services';
+import { CommonServicesModule, NotificationService } from './common-services';
 import { ConfigModule } from './config';
 import {MainModule} from './main';
 import { SecurityModule } from './security';
+import { DemosComponent } from './demos/demos.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemosComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { SecurityModule } from './security';
     MyCoreModule,
     AppRoutingModule,
     CommonServicesModule,
+    NotificationService,
   ],
   providers: [
     LoggerService,

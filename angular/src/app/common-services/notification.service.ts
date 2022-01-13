@@ -5,8 +5,7 @@ import { Subject } from 'rxjs';
 export enum NotificationType { error, warn, info, log }
 
 export class Notification {
-  constructor(private id: number, private message: string,
-  private type: NotificationType) {}
+  constructor(private id: number, private message: string, private type: NotificationType) {}
   public get Id() { return this.id; }
   public get Message() { return this.message; }
 }
@@ -19,7 +18,8 @@ export class NotificationService {
   public readonly NotificationType = NotificationType;
   private notificacion$ = new Subject<Notification>();
 
-  constructor(private out: LoggerService) { }
+  constructor(private out: LoggerService) {
+  }
   public get Listado() { return Object.assign([], this.listado); }
   public get HayNotificaciones() { return this.listado.length > 0; }
   public get Notificacion() { return this.notificacion$; }
@@ -34,6 +34,7 @@ export class NotificationService {
     const n = new Notification(id, msg, type);
     this.listado.push(n);
     this.notificacion$.next(n);
+
     // Redundancia: Los errores también se muestran en consola
     if (type === NotificationType.error) {
       this.out.error(`NOTIFICATION: ${msg}`);
