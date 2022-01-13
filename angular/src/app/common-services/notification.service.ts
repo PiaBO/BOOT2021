@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoggerService } from 'src/lib/my-core/services/logger.service';
+import { Subject } from 'rxjs';
+
 export enum NotificationType { error, warn, info, log }
 
 export class Notification {
@@ -15,10 +17,12 @@ export class Notification {
 export class NotificationService {
   private listado: Array<Notification> = [];
   public readonly NotificationType = NotificationType;
+  private notificacion$ = new Subject<Notification>();
 
   constructor(private out: LoggerService) { }
   public get Listado() { return Object.assign([], this.listado); }
   public get HayNotificaciones() { return this.listado.length > 0; }
+  public get Notificacion() { return this.notificacion$; }
 
   public add(msg: string, type: NotificationType = NotificationType.error)
   {
@@ -29,10 +33,12 @@ export class NotificationService {
     const id = this.HayNotificaciones ? (this.listado[this.listado.length - 1].Id + 1) : 1;
     const n = new Notification(id, msg, type);
     this.listado.push(n);
+    this.notificacion$.next(n);
     // Redundancia: Los errores también se muestran en consola
     if (type === NotificationType.error) {
       this.out.error(`NOTIFICATION: ${msg}`);
     }
+
    }
 
    public remove(index: number) {
