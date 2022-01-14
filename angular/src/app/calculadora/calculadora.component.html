@@ -11,8 +11,8 @@
     <table>
        <tr>
           <td colspan="4" class="result">
-            <p id="acumulado"></p>
-            <h3 id="resultado"></h3>
+            <p id="acumulado" [textContent]="acumulado"></p>
+            <h3 id="resultado" [textContent]="resultado"></h3>
             </td>
 
        </tr>
@@ -22,28 +22,28 @@
           <td colspan="2"><input type="button" value="<" id="borrar"/> </td>
        </tr>
        <tr>
-          <td><input type="button" class="num" value="1"/> </td>
-          <td><input type="button" class="num" value="2"/> </td>
-          <td><input type="button" class="num" value="3"/> </td>
-          <td><input type="button" class="operation" value="/">  </td>
+          <td><input type="button" class="num" value="1" (click)="teclaNumero('1')"/> </td>
+          <td><input type="button" class="num" value="2" (click)="teclaNumero('2')"/> </td>
+          <td><input type="button" class="num" value="3" (click)="teclaNumero('3')"/> </td>
+          <td><input type="button" class="operation" value="/" (click)="teclaOperacion('/')">  </td>
        </tr>
        <tr>
-          <td><input type="button" class="num"value="4"/></td>
-          <td><input type="button" class="num"value="5"/></td>
-          <td><input type="button" class="num"value="6"/></td>
-          <td><input type="button" class="operation" value="-"/></td>
+          <td><input type="button" class="num"value="4" (click)="teclaNumero('1')"/></td>
+          <td><input type="button" class="num"value="5" (click)="teclaNumero('5')"/></td>
+          <td><input type="button" class="num"value="6"(click)="teclaNumero('6')"/></td>
+          <td><input type="button" class="operation" value="-" (click)="teclaOperacion('-')"/></td>
        </tr>
        <tr>
-          <td><input type="button" class="num"value="7"/></td>
-          <td><input type="button" class="num"value="8"/></td>
-          <td><input type="button" class="num"value="9"/></td>
-          <td><input type="button"  class="operation" value="+"/></td>
+          <td><input type="button" class="num"value="7" (click)="teclaNumero('7')"/></td>
+          <td><input type="button" class="num"value="8" (click)="teclaNumero('8')"/></td>
+          <td><input type="button" class="num"value="9" (click)="teclaNumero('9')"/></td>
+          <td><input type="button"  class="operation" value="+" (click)="teclaOperacion('+')"/></td>
        </tr>
        <tr>
-          <td><input type="button" class="num coma" value=","/></td>
-          <td><input type="button" class="num"value="0"/></td>
-          <td><input type="button" id="igual" value="="/></td>
-          <td><input type="button" class="operation" value="*"/></td>
+          <td><input type="button" class="num coma" value="," (click)="teclaOperacion(',')"/></td>
+          <td><input type="button" class="num"value="0" (click)="teclaNumero('0')"/></td>
+          <td><input type="button" id="igual" value="=" (click)="igual()"/></td>
+          <td><input type="button" class="operation" value="*" (click)="teclaOperacion('*')"/></td>
        </tr>
     </table>
  </body>
