@@ -25,6 +25,9 @@ class Calculadora {
     get operador(){
         return this.#operador;
     }
+    set operador(operador) {
+        this.#operador = operador;
+    }
     limpiar() {
         this.#resultado = "0";
         this.#acumulado = "";
@@ -65,7 +68,6 @@ class Calculadora {
             }
         }
         this.setResultado(this.#resultado);
-
     }
 
     teclaOperacion(signoOperacion) {
