@@ -14,7 +14,6 @@
             <p id="acumulado"></p>
             <h3 id="resultado"></h3>
             </td>
-          
        </tr>
        <tr>
           <td><input type="button" value="±" id="cambioSigno"/> </td>
@@ -27,6 +26,7 @@
           <td><input type="button" class="num" value="3"/> </td>
           <td><input type="button" class="operation" value="/">  </td>
        </tr>
+       <tr>
           <td><input type="button" class="num"value="4"/></td>
           <td><input type="button" class="num"value="5"/></td>
           <td><input type="button" class="num"value="6"/></td>
@@ -39,7 +39,7 @@
           <td><input type="button"  class="operation" value="+"/></td>
        </tr>
        <tr>
-          <td><input type="button" class="num coma" value=","/></td>
+          <td><input type="button" id="coma" class="coma" value=","/></td>
           <td><input type="button" class="num"value="0"/></td>
           <td><input type="button" id="igual" value="="/></td>
           <td><input type="button" class="operation" value="*"/></td>
@@ -81,7 +81,12 @@
     function(){
         calculadora.cambioSigno();
     }
-);
+    );
+    document.querySelector("#coma").addEventListener('click',
+        function(){
+            calculadora.coma();
+        }
+    );
     
     document.body.addEventListener('keyup', function(ev){teclado(ev);});
 

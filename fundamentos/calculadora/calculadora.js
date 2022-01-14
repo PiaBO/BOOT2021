@@ -72,12 +72,17 @@ class Calculadora {
 
     teclaOperacion(signoOperacion) {
         let acumulado = this.#acumulado;
+        let resultado = this.#resultado;
         this.#operador = signoOperacion;
         if (acumulado.search("=") != -1 || !(acumulado[acumulado.length - 1] >= 0 && acumulado[acumulado.length - 1] <= 9)) {
+            if(resultado[resultado.length - 1] ==',')
+                this.#resultado +='0';
             this.#acumulado = this.#resultado + signoOperacion;
             this.#resultadoPlaceholder = true;
             this.#operacionTerminada = false;
         } else {
+            if(resultado[resultado.length - 1]==',')
+                this.#resultado +='0';
             let operacion = acumulado + this.#resultado;
             let arrOperacion = this.separador(operacion);
             this.#resultadoPlaceholder = true;
@@ -92,6 +97,13 @@ class Calculadora {
         }
         this.setResultado(this.#resultado);
         this.setAcumulado(this.#acumulado);
+    }
+
+    coma(){
+        if(this.#resultado.search(",") == -1){
+            this.#resultado += ",";
+            this.setResultado(this.#resultado);
+        }
     }
 
     separador(str) {
