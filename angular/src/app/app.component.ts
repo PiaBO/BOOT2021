@@ -7,13 +7,12 @@ import { LoggerService } from 'src/lib/my-core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'curso';
 
-  constructor(private out: LoggerService){
-    // out.error('Un error');
-    // out.warn('Un warning');
-    // out.log('Un log');
-    // out.info('Un info');
-
-  }
+  // constructor(private out: LoggerService) {
+  //   out.error('Es un error')
+  //   out.warn('Es un warn')
+  //   out.info('Es un info')
+  //   out.log('Es un log')
+  // }
 }
+
