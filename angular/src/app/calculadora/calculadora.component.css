@@ -1,6 +1,6 @@
 *{
   --color-body:rgba(114, 53, 106, 0.569);
-  --color-font:white;
+  --color-font:#ffffff;
   --color-font-acumulado:rgb(238, 238, 238);
   --color-fondo-tabla:beige;
   --color-fondo-operaciones:#360a36ba;
@@ -28,7 +28,7 @@ animation-name: animacion;
 animation-duration: 2s;
 animation-fill-mode: forwards;
 }
-body {
+body, main {
 font-family: "Lato", sans-serif;
 background-color: var(--color-body);
 }
@@ -54,9 +54,10 @@ margin: 0.2em;
 text-align: right;
 }
 
-#acumulado {
+#acumulado, #resultado {
 color: var(--color-font-acumulado);
 }
+
 .num:not(.coma) {
 background-color: var(--color-fondo-numeros);
 }

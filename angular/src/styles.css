@@ -35,7 +35,6 @@
   color: red;
 }
 
-
 form .ng-pristine {
   border-color: navy;
   box-shadow: 5px 5px 5px navy;
@@ -53,5 +52,4 @@ form .ng-invalid {
 }
 form .ng-invalid-parse {
   transition: all linear 1s;
-}
-*/
+} */
