@@ -69,8 +69,8 @@ export function EsFuturo(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
       if (!control.value) { return null; }
       var date = new Date(control.value)
-      if(date.getMonth() < new Date().getMonth() && date.getDay() < new Date().getDay()
-      && date.getFullYear() < new Date().getFullYear())
+      if(date.getMonth() >= new Date().getMonth() && date.getDate() >= new Date().getDate()
+      && date.getFullYear() >= new Date().getFullYear())
         return null;
       else
         return { EsFuturo: 'La fecha no es válida' }
@@ -91,7 +91,7 @@ export class EsFuturoValidator implements Validator {
 
 export function NotBlank(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-      if(control.value.trim() != "" && control.value.trim() !=null)
+      if(control.value !=null && control.value.trim() != "" )
         return null;
       else
         return { NotBlank: 'Nombre no valido' }
