@@ -15,7 +15,7 @@
     <br>
     Nombre:
     <input type="text" id="nombre" name="nombre" [(ngModel)]="elemento.nombre" #nombre="ngModel"
-      required minlength="2" maxlength="10">
+      required minlength="2" maxlength="10" esmayusculas>
     <output class="error" [hidden]="!nombre.hasError('required')">Es obligatorio</output>
     <output class="error" [hidden]="!nombre.hasError('minlength') && !nombre.hasError('maxlength')">
       Debe tener entre 2 y 10 letras
@@ -23,7 +23,7 @@
     <br>
     Apellidos:
     <input type="text" id="apellidos" name="apellidos" [(ngModel)]="elemento.apellidos" #apellidos="ngModel"
-      minlength="2" maxlength="10">
+      minlength="2" maxlength="10" esmayusculas>
     <output class="error" [hidden]="!apellidos.hasError('minlength') && !apellidos.hasError('maxlength')">
       Debe tener entre 2 y 10 letras
     </output>
@@ -34,6 +34,16 @@
     <output class="error" [hidden]="!edad.hasError('min') && !edad.hasError('max')">
       Debe tener entre 16 y 67 años
     </output>{{edad.errors | json}}
+    <br>
+    NIF:
+    <input type="text" id="nif" name="nif" [(ngModel)]="elemento.nif" #nif="ngModel" nif >
+    <output class="error" [hidden]="!nif.hasError('nif')" >No es un nif valido</output>{{nif.errors | json}}
+    <br>
+    Correo:
+    <input type="email" id="email" name="email" [(ngModel)]="elemento.email" #email="ngModel" >
+    <output class="error" [hidden]="!email.hasError('type')">
+      {{email.getError('type')}}
+    </output>{{email.errors | json}}
   </p>
   <p>
     <input type="button" value="enviar" (click)="send()" [disabled]="miForm.invalid">
