@@ -23,10 +23,13 @@
     <br>
     Apellidos:
     <input type="text" id="apellidos" name="apellidos" [(ngModel)]="elemento.apellidos" #apellidos="ngModel"
-      minlength="2" maxlength="10" esmayusculas>
-    <output class="error" [hidden]="!apellidos.hasError('minlength') && !apellidos.hasError('maxlength')">
+      minlength="2" maxlength="10" NotBlank>
+    <!-- <output class="error" [hidden]="!apellidos.hasError('minlength') && !apellidos.hasError('maxlength')">
       Debe tener entre 2 y 10 letras
-    </output>
+    </output> -->
+    <output class="error" [hidden]="!apellidos.hasError('NotBlank')">
+      El campo no puede ser vacio
+    </output>{{apellidos.errors | json}}
     <br>
     Edad:
     <input type="number" id="edad" name="edad" [(ngModel)]="elemento.edad" #edad="ngModel"
@@ -44,6 +47,12 @@
     <output class="error" [hidden]="!email.hasError('type')">
       {{email.getError('type')}}
     </output>{{email.errors | json}}
+    <br>
+    Fecha:
+    <input type="date" id="date" name="date" [(ngModel)]="elemento.date" #date="ngModel" EsFuturo>
+    <output class="error" [hidden]="!date.hasError('date')"EsFuturo>
+      {{date.getError('type')}}
+    </output>{{date.errors | json}}
   </p>
   <p>
     <input type="button" value="enviar" (click)="send()" [disabled]="miForm.invalid">

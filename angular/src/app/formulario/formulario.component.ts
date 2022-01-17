@@ -7,6 +7,7 @@ export class Persona {
   edad: number | null = null;
   nif: string | null = null;
   email: string | null = null;
+  date: Date | null = null;
 }
 
 @Component({
@@ -28,7 +29,7 @@ export class FormularioComponent implements OnInit {
     this.isAdd = true;
   }
   edit(id: number): void {
-    this.elemento = { id, nombre: 'Pepito', apellidos: 'Grillo', edad: 66, nif: null, email: 'pepito@grillo' }
+    this.elemento = { id, nombre: 'Pepito', apellidos: 'Grillo', edad: 66, nif: null, email: 'pepito@grillo', date:null }
     this.isAdd = false;
   }
   send(): void {

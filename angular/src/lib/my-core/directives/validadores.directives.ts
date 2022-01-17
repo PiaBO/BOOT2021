@@ -64,4 +64,48 @@ export class TypeValidator implements Validator {
   }
 }
 
-export const MIS_VALIDADORES = [EsMayusculasValidator, NIFValidator, TypeValidator]
+
+export function EsFuturo(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+      if (!control.value) { return null; }
+      var date = new Date(control.value)
+      if(date.getMonth() < new Date().getMonth() && date.getDay() < new Date().getDay()
+      && date.getFullYear() < new Date().getFullYear())
+        return null;
+      else
+        return { EsFuturo: 'La fecha no es válida' }
+  };
+}
+
+@Directive({
+  selector: '[EsFuturo][formControlName],[EsFuturo][formControl],[EsFuturo][ngModel]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: EsFuturoValidator, multi: true }]
+})
+
+export class EsFuturoValidator implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+      return EsFuturo()(control);
+  }
+}
+
+
+export function NotBlank(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+      if(control.value.trim() != "" && control.value.trim() !=null)
+        return null;
+      else
+        return { NotBlank: 'Nombre no valido' }
+  };
+}
+
+@Directive({
+  selector: '[NotBlank][formControlName],[NotBlank][formControl],[NotBlank][ngModel]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: NotBlankValidator, multi: true }]
+})
+
+export class NotBlankValidator implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+      return NotBlank()(control);
+  }
+}
+export const MIS_VALIDADORES = [EsMayusculasValidator, NIFValidator, TypeValidator, EsFuturoValidator,NotBlankValidator]
