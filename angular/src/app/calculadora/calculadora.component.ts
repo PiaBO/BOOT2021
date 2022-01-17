@@ -14,7 +14,7 @@ export class CalculadoraComponent implements OnInit {
 
   constructor() {
     this.operador = '';
-    this.resultado = '';
+    this.resultado = '0';
     this.acumulado = '';
     this.operacionTerminada = false;
     this.resultadoPlaceholder = false;
@@ -32,7 +32,7 @@ export class CalculadoraComponent implements OnInit {
 
   public limpiar(){
     this.operador = '';
-    this.resultado = '';
+    this.resultado = '0';
     this.acumulado = '';
     this.operacionTerminada = false;
     this.resultadoPlaceholder = false;
@@ -114,7 +114,7 @@ export class CalculadoraComponent implements OnInit {
             this.acumulado = result + signoOperacion;
             this.operacionTerminada = false;
         } else {
-            this.acumulado+= this.resultado+signoOperacion;
+            this.acumulado += this.resultado+signoOperacion;
         }
       }
   }
@@ -125,6 +125,12 @@ export class CalculadoraComponent implements OnInit {
     if(resultado != '0')
     this.resultado = resultado.substr(0, resultado.length - 1)
 
+}
+
+coma(){
+  if(this.resultado.search(',') == -1){
+      this.resultado += ',';
+  }
 }
 
   cambioSigno(){
