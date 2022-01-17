@@ -134,8 +134,8 @@ coma(){
 }
 
   cambioSigno(){
-    let aux = (-1)*parseFloat(this.resultado);
-    this.resultado = aux.toString();
+    let aux = (-1)*parseFloat(this.resultado.replace(",", "."));
+    this.resultado = aux.toString().replace(".", ",");
   }
   ngOnInit(): void {
   }
