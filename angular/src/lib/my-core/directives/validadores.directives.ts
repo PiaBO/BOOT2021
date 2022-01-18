@@ -108,4 +108,47 @@ export class NotBlankValidator implements Validator {
       return NotBlank()(control);
   }
 }
-export const MIS_VALIDADORES = [EsMayusculasValidator, NIFValidator, TypeValidator, EsFuturoValidator,NotBlankValidator]
+
+export function EsPasado(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+      if (!control.value) { return null; }
+      var date = new Date(control.value)
+      if(date.getMonth() <= new Date().getMonth() && date.getDate() <= new Date().getDate()
+      && date.getFullYear() <= new Date().getFullYear())
+        return null;
+      else
+        return { EsPasado: 'La fecha no es válida' }
+  };
+}
+
+@Directive({
+  selector: '[EsPasado][formControlName],[EsPasado][formControl],[EsPasado][ngModel]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: EsPasadoValidator, multi: true }]
+})
+
+export class EsPasadoValidator implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+      return EsPasado()(control);
+  }
+}
+
+export function ShowErrorsMessages(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    console.log(control);
+      if (!control.errors) { return null; }
+      else
+        return {Error:control.errors[2]};
+  };
+}
+
+@Directive({
+  selector: '[ShowErrorsMessages][formControlName],[ShowErrorsMessages][formControl],[ShowErrorsMessages][ngModel]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: ShowErrorsMessagesValidator, multi: true }]
+})
+
+export class ShowErrorsMessagesValidator implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+      return ShowErrorsMessages()(control);
+  }
+}
+export const MIS_VALIDADORES = [EsMayusculasValidator, NIFValidator, TypeValidator, EsFuturoValidator,NotBlankValidator,EsPasadoValidator,ShowErrorsMessagesValidator]

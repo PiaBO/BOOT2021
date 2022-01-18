@@ -8,6 +8,8 @@ export class Persona {
   nif: string | null = null;
   email: string | null = null;
   date: Date | null = null;
+  pastDate: Date | null = null;
+
 }
 
 @Component({
@@ -29,7 +31,7 @@ export class FormularioComponent implements OnInit {
     this.isAdd = true;
   }
   edit(id: number): void {
-    this.elemento = { id, nombre: 'Pepito', apellidos: 'Grillo', edad: 66, nif: null, email: 'pepito@grillo', date:null }
+    this.elemento = { id, nombre: 'Pepito', apellidos: 'Grillo', edad: 66, nif: null, email: 'pepito@grillo', date:null , pastDate:null }
     this.isAdd = false;
   }
   send(): void {

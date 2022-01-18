@@ -48,11 +48,17 @@
       {{email.getError('type')}}
     </output>{{email.errors | json}}
     <br>
-    Fecha:
-    <input type="date" id="date" name="date" [(ngModel)]="elemento.date" #date="ngModel" EsFuturo>
-    <output class="error" [hidden]="!date.hasError('date')"EsFuturo>
-      {{date.getError('type')}}
+    Fecha de entrega:
+    <input type="date" id="date" name="date" [(ngModel)]="elemento.date" #date="ngModel" EsFuturo ShowErrorsMessages>
+    <output class="error" [hidden]="!date.hasError('ShowErrorsMessages')">
+     No puedes pedir una pizza en una fecha pasada
     </output>{{date.errors | json}}
+  <br>
+    Fecha de entrega pedido anterior:
+    <input type="date" id="pastDate" name="pastDate" [(ngModel)]="elemento.pastDate" #pastDate="ngModel" EsPasado>
+    <output class="error" [hidden]="!pastDate.hasError('EsPasado')">
+    El pedido no se pudo enviar ese dia
+     </output><!--{{pastDate.errors | json}} -->
   </p>
   <p>
     <input type="button" value="enviar" (click)="send()" [disabled]="miForm.invalid">
