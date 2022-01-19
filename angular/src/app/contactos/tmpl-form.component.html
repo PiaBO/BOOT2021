@@ -9,7 +9,7 @@
         type="number"
         name="id"
         id="id"
-        [(ngModel)]="VM.elemento.id"
+        [(ngModel)]="VM.Elemento.id"
         #id="ngModel"
         required
         min="0"
@@ -27,8 +27,9 @@
         class="form-control form-select"
         name="tratamiento"
         id="tratamiento"
-        [(ngModel)]="VM.elemento.tratamiento"
+        [(ngModel)]="VM.Elemento.tratamiento"
         #tratamiento="ngModel"
+        NotBlank
       >
         <option>Sr.</option>
         <option>Sra.</option>
@@ -49,14 +50,23 @@
         type="text"
         name="nombre"
         id="nombre"
-        [(ngModel)]="VM.elemento.nombre"
+        [(ngModel)]="VM.Elemento.nombre"
         #nombre="ngModel"
         required
         minlength="2"
         maxlength="50"
+        NotBlank
       />
-      <div class="invalid-feedback" [hidden]="!nombre.hasError('required')">
+      <div
+        class="invalid-feedback"
+        [hidden]="!nombre.hasError('required')"
+        NotBlank
+        ShowErrorsMessages
+      >
         Es obligatorio
+      </div>
+      <div class="invalid-feedback" [hidden]="!nombre.hasError('NotBlank')">
+        El campo no puede ser vac&iacute;o
       </div>
       <div
         class="invalid-feedback"
@@ -75,11 +85,15 @@
         type="text"
         name="apellidos"
         id="apellidos"
-        [(ngModel)]="VM.elemento.apellidos"
+        [(ngModel)]="VM.Elemento.apellidos"
         #apellidos="ngModel"
         minlength="2"
         maxlength="50"
+        NotBlank
       />
+      <div class="invalid-feedback" [hidden]="!apellidos.hasError('NotBlank')">
+        El campo no puede ser vac&iacute;o
+      </div>
       <div
         class="invalid-feedback"
         [hidden]="
@@ -99,7 +113,7 @@
         type="tel"
         name="telefono"
         id="telefono"
-        [(ngModel)]="VM.elemento.telefono"
+        [(ngModel)]="VM.Elemento.telefono"
         #telefono="ngModel"
         maxlength="11"
       />
@@ -115,7 +129,7 @@
         type="email"
         name="email"
         id="email"
-        [(ngModel)]="VM.elemento.email"
+        [(ngModel)]="VM.Elemento.email"
         #email="ngModel"
         email
         maxlength="100"
@@ -136,7 +150,7 @@
         type="date"
         name="nacimiento"
         id="nacimiento"
-        [(ngModel)]="VM.elemento.nacimiento"
+        [(ngModel)]="VM.Elemento.nacimiento"
         #nacimiento="ngModel"
       />
     </div>
@@ -150,7 +164,7 @@
             name="sexo"
             id="sexo1"
             value="H"
-            [(ngModel)]="VM.elemento.sexo"
+            [(ngModel)]="VM.Elemento.sexo"
           />
           <label class="form-check-label" for="sexo1">Hombre</label>
         </div>
@@ -161,7 +175,7 @@
             name="sexo"
             id="sexo2"
             value="M"
-            [(ngModel)]="VM.elemento.sexo"
+            [(ngModel)]="VM.Elemento.sexo"
           />
           <label class="form-check-label" for="sexo2">Mujer</label>
         </div>
@@ -176,7 +190,7 @@
             type="checkbox"
             id="conflictivo"
             name="conflictivo"
-            [(ngModel)]="VM.elemento.conflictivo"
+            [(ngModel)]="VM.Elemento.conflictivo"
             #conflictivo="ngModel"
           />
           <label class="form-check-label" for="conflictivo">Conflictivo</label>
@@ -193,7 +207,7 @@
         type="url"
         name="avatar"
         id="avatar"
-        [(ngModel)]="VM.elemento.avatar"
+        [(ngModel)]="VM.Elemento.avatar"
         #avatar="ngModel"
         maxlength="500"
       />

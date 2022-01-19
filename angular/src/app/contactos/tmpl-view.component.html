@@ -5,30 +5,30 @@
       <div class="row">
         <div class="col-sm-6 col-md-4">
           <img
-            src="{{ VM.elemento.avatar }}"
-            alt="Foto de {{ VM.elemento.nombre }} {{ VM.elemento.apellidos }}"
+            src="{{ VM.Elemento.avatar }}"
+            alt="Foto de {{ VM.Elemento.nombre }} {{ VM.Elemento.apellidos }}"
             class="rounded"
           />
         </div>
         <div class="col-sm-6 col-md-8">
           <h4>
-            {{ VM.elemento.tratamiento }} {{ VM.elemento.nombre }}
-            {{ VM.elemento.apellidos }}
+            {{ VM.Elemento.tratamiento }} {{ VM.Elemento.nombre }}
+            {{ VM.Elemento.apellidos }}
           </h4>
-          <p [hidden]="!VM.elemento.conflictivo">
+          <p [hidden]="!VM.Elemento.conflictivo">
             <small class="text-danger">
               <i class="fas fa-skull-crossbones mr-2"></i>Persona
               conflictiva</small
             >
           </p>
           <p>
-            <i class="fas fa-phone-alt mr-2"></i>{{ VM.elemento.telefono }}
+            <i class="fas fa-phone-alt mr-2"></i>{{ VM.Elemento.telefono }}
             <br />
             <i class="fas fa-envelope mr-2"></i>
-            <a href="mailto:{{ VM.elemento.email }}">{{ VM.elemento.email }}</a>
+            <a href="mailto:{{ VM.Elemento.email }}">{{ VM.Elemento.email }}</a>
             <br />
             <i class="fas fa-gifts mr-2"></i
-            >{{ VM.elemento.nacimiento | date: "dd/MM/yyyy" }}
+            >{{ VM.Elemento.nacimiento | date: "dd/MM/yyyy" }}
           </p>
           <div class="btn-group">
             <button type="button" class="btn btn-primary">Social</button>

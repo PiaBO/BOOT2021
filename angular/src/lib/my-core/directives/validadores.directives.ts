@@ -91,7 +91,7 @@ export class EsFuturoValidator implements Validator {
 
 export function NotBlank(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
-      if(control.value !=null && control.value.trim() != "" )
+      if(control.value != null && control.value.trim() != "" )
         return null;
       else
         return { NotBlank: 'Nombre no valido' }

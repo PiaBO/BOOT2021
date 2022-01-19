@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from '../common-services';
 import { LoggerService } from 'src/lib/my-core/services/logger.service';
 import { AUTH_REQUIRED } from '../security/security.service';
+
 export abstract class RESTDAOService<T, K> {
   protected baseUrl = environment.apiURL;
   constructor(protected http: HttpClient, entidad: string, protected option = {}) {
@@ -46,13 +47,19 @@ export class ContactosDAOService extends RESTDAOService<any, any> {
 })
 
 export class ContactosViewModelService {
-  public modo: ModoCRUD = 'list';
-  public listado: Array<any> = [];
-  public elemento: any = {};
-  public idOriginal: any = null;
+  protected modo: ModoCRUD = 'list';
+  protected listado: Array<any> = [];
+  protected elemento: any = {};
+  protected idOriginal: any = null;
+
   constructor(protected notify: NotificationService,
     protected out: LoggerService,
     protected dao: ContactosDAOService) { }
+
+  public get Modo(): ModoCRUD { return this.modo; }
+  public get Listado(): Array<any> { return this.listado; }
+  public get Elemento(): any { return this.elemento; }
+
   public list(): void {
     this.dao.query().subscribe({
       next: data => {
@@ -88,7 +95,7 @@ export class ContactosViewModelService {
   public delete(key: any): void {
     if (!window.confirm('¿Seguro?')) { return; }
     this.dao.remove(key).subscribe({
-      //next: data => this.load(), // this.list(),
+      next: data => /*this.load(),*/  this.list(),
       error: err => this.notify.add(err.message)
     });
   }
