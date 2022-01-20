@@ -1,0 +1,27 @@
+<button class="btn" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>TYPE</th>
+        <th>PRICE</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ VM.Elemento.id }}</td>
+        <td>{{ VM.Elemento.name }}</td>
+        <td>Ingredient</td>
+        <td>{{ VM.Elemento.price }} €</td>
+        <td class="botonera">
+          <button class="btn"><i class="pi pi-pencil" (click)="VM.edit(VM.Elemento.id)"></i></button>
+          <button class="btn"><i class="pi pi-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

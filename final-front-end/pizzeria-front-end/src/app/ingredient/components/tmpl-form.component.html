@@ -1,0 +1,18 @@
+<section class="login">
+  <div class="card-login ">
+    <form class="form" action="#" #miForm="ngForm">
+      <h2>Edit Ingredient/h2>
+        <label for="uuid">UUID</label>
+        <input id="uuid" type="text" [(ngModel)]="VM.Elemento.id" #id="ngModel" required autofocus />
+        <label for="name">Name</label>
+        <input id="name" type="text" [(ngModel)]="VM.Elemento.name" #name="ngModel" required />
+        <label for="type">Type</label>
+        <select name="" id="" disabled="disabled">
+          <option value="Ingredient">Ingredient</option>
+          <option value="Base">Base</option>
+        </select>
+        <label for="price">Price</label>
+        <input id="price" type="text" [(ngModel)]="VM.Elemento.price" #price="ngModel" required />
+    </form>
+  </div>
+</section>

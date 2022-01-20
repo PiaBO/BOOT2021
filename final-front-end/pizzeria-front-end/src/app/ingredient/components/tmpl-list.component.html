@@ -1,0 +1,27 @@
+<h1 class="heading-primary-main">Ingredients</h1>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>TYPE</th>
+        <th>PRICE</th>
+        <th>ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of VM.Listado">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>Ingredient</td>
+        <td>{{ item.price }} €</td>
+        <td class="botonera">
+          <button class="btn" (click)="VM.view(item.id)"><i class="pi pi-eye"></i></button>
+          <button class="btn" (click)="VM.edit(item.id)"><i class="pi pi-pencil"></i></button>
+          <button class="btn"><i class="pi pi-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

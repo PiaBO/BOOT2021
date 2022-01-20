@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="brand-box">
+      <a class="brand link"><i><b>G</b>emini</i></a>
+  </div>
+  <div class="text-box">
+      <h1 class="heading-primary">
+          <span class="heading-primary-main">Authentic homemade pizzas</span>
+          <span class="heading-primary-sub">Since 2021</span>
+      </h1>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="horizontal navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item" *ngFor="let item of menu; let indice=index;">
+        <button class="btn-menu btn-link nav-link" [class.active]="item.componente === actual" type="button"
+          (click)="seleccionar(indice)"><i class="fas fa-{{item.icono}}"></i> {{item.texto}}</button>
+      </li>
+    </ul>
+  </div>
+</header>
+<main class="container-fluid">
+  <ng-container *ngComponentOutlet="actual"></ng-container>
+  </main>
