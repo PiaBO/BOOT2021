@@ -42,7 +42,7 @@ export class IngredientViewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.obs$ = this.route.paramMap.subscribe(
       (params: ParamMap) => {
-        const id = parseInt(params?.get('id')??'');
+        const id = params?.get('id')??'';
         if(id){
           this.vm.view(id);
         }else{
@@ -68,7 +68,7 @@ export class IngredientEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.obs$ = this.route.paramMap.subscribe(
       (params: ParamMap) => {
-        const id = parseInt(params?.get('id')??'');
+        const id = params?.get('id')??'';
         if(id){
           this.vm.view(id);
         }else{
@@ -93,9 +93,21 @@ export class IngredientsAddComponent implements OnInit {
     this.VM.add();
   }
 }
+@Component({
+  selector: 'app-ingredient-recipe',
+  templateUrl: './tmpl-form.component.html',
+  styleUrls: ['./component.component.css']
+})
+export class IngredientRecipeComponent implements OnInit {
+  constructor(protected vm: IngredientViewModelService) { }
+  public get VM(): IngredientViewModelService { return this.vm; }
+  ngOnInit(): void {
+    this.VM.list();
+  }
+}
 export const INGREDIENT_COMPONENTS = [
   IngredientComponent, IngredientListComponent,IngredientViewComponent,
-  IngredientEditComponent, IngredientsAddComponent,
+  IngredientEditComponent, IngredientsAddComponent,IngredientRecipeComponent,
 ];
 
 

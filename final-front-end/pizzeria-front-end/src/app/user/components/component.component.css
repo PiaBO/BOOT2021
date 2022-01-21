@@ -1,3 +1,22 @@
+.ingredients-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: flex-end;
+}
+.left {
+  text-align: left;
+  margin-left: 1em;
+  margin-bottom: 0;
+}
+.ingredients-container-solo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-around;
+}
+
 
 table {
   border: 1px solid #ccc;
@@ -121,4 +140,8 @@ i:hover {
 }
 .btn-submit{
   background-color:#cecdcd;
+}
+
+ul{
+  text-decoration: none;
 }

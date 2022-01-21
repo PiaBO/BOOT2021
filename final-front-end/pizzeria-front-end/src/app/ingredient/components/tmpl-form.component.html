@@ -1,20 +1,16 @@
-<!-- <section class="login">
-  <div class="card-login ">
-    <form class="form" action="#" #miForm="ngForm">
-      <h2>Edit Ingredient/h2>
-        <label for="uuid">UUID</label>
-        <input id="uuid" type="text" [(ngModel)]="VM.Elemento.id" #id="ngModel" required autofocus />
-        <label for="name">Name</label>
-        <input id="name" type="text" [(ngModel)]="VM.Elemento.name" #name="ngModel" required />
-        <label for="type">Type</label>
-        <select name="" id="" disabled="disabled">
-          <option value="Ingredient">Ingredient</option>
-          <option value="Base">Base</option>
-        </select>
-        <label for="price">Price</label>
-        <input id="price" type="text" [(ngModel)]="VM.Elemento.price" #price="ngModel" required />
-    </form>
-  </div>
-</section> -->
 
-<p>Edit ingrediente</p>
+<button class="btn btn-back btn-submit" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
+<section class="login">
+  <article class="card-login ">
+      <form #miForm="ngForm" class="form" action="#">
+          <h2>Edit Ingredient</h2>
+          <label for="id">ID</label>
+          <input id="id" type="text" name="id" [(ngModel)]="VM.Elemento.id" #id="ngModel" required autofocus/>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" [(ngModel)]="VM.Elemento.name" #name="ngModel" required autofocus/>
+          <label for="price">Price</label>
+          <input id="price"name="price" type="text" [(ngModel)]="VM.Elemento.price" #price="ngModel" required autofocus/>
+          <input class="btn btn-submit" type="button" (click)="VM.send()"  (cancel)="VM.cancel()" value="SAVE"/>
+        </form>
+  </article>
+</section>

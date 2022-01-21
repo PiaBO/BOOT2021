@@ -1,22 +1,18 @@
 <header class="header">
   <div class="brand-box">
-      <a class="brand link"><i><b>G</b>emini</i></a>
+      <a class="brand link" routerLinkActive="active" routerLink="/pizzas"><i><b>G</b>emini</i></a>
   </div>
   <div class="text-box">
       <h1 class="heading-primary">
           <span class="heading-primary-main">Authentic homemade pizzas</span>
           <span class="heading-primary-sub">Since 2021</span>
       </h1>
+      <a routerLinkActive="active" routerLink="/login" class="btn btn-white btn-animated">Log in</a>
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="horizontal navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item" *ngFor="let item of menu; let indice=index;">
-        <button class="btn-menu btn-link nav-link" [class.active]="item.componente === actual" type="button"
-         [routerLink]="['/ingredients']" routerLinkActive="active">Ingredients</button>
-      </li>
-    </ul>
-  </div>
+  <ul class="horizontal">
+      <li><a class="active link" routerLinkActive="active" routerLink="/pizzas">MENU</a></li>
+      <li><a class="link"routerLinkActive="active" routerLink="/ingredients">INGREDIENTS</a></li>
+      <li><a class="link"routerLinkActive="active" routerLink="/pizzas/admin">PIZZAS</a></li>
+      <li class="rightli link" style="float:right"><a routerLinkActive="active" routerLink="/demos">Log out</a></li>
+  </ul>
 </header>
-<main class="container-fluid">
-  <ng-container *ngComponentOutlet="actual"></ng-container>
-  </main>

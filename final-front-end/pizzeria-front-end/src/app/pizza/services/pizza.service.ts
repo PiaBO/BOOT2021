@@ -12,32 +12,33 @@ const AUTH_REQUIRED = new HttpContextToken<boolean>(() => false);
 
   providedIn: 'root'
 })
-export class IngredientsDAOService extends RESTDAOService<any, any> {
+export class PizzasDAOService extends RESTDAOService<any, any> {
   //TO DO: seguridad, controlar rol user
   constructor(http: HttpClient) {
-    super(http, 'ingredients', { });
-    //super(http, 'ingredients', { context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'pizzas', { });
+    //super(http, 'pizzas', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class IngredientViewModelService {
+export class PizzaViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/ingredients';
+  protected listURL = '/pizzas';
 
   // TO DO:
   // sistema de notificaciones
   // servicio de auth
+  // private navigation: NavigationService (common-services)
   constructor(/*protected notify: NotificationService,*/
     protected out: LoggerService,
-    protected dao: IngredientsDAOService,
+    protected dao: PizzasDAOService,
     protected router: Router,
-    private navigation: NavigationService
+    private navigation: NavigationService,
     ) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
@@ -94,8 +95,6 @@ export class IngredientViewModelService {
     this.navigation.back();
   }
   public send(): void {
-    console.log("hola")
-
     switch (this.modo) {
       case 'add':
         this.dao.add(this.elemento).subscribe({

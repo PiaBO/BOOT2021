@@ -17,6 +17,7 @@ import { FooterComponent } from './main/footer/footer.component';
 import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core/services/logger.service';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     MessageModule,
     TabMenuModule,
-    PizzaModule,
     CommentModule,
     OrdersModule,
     UserModule,
     HttpClientModule,
-
+    RouterModule,
   ],
   providers: [
     LoggerService,

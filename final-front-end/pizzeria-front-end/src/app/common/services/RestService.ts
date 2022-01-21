@@ -9,9 +9,6 @@ export abstract class RESTDAOService<T, K> {
     this.baseUrl += entidad;
   }
   query(): Observable<Array<T>> {
-    console.log(this.baseUrl)
-    console.log(this.option)
-
     return this.http.get<Array<T>>(this.baseUrl, this.option);
   }
   get(id: K): Observable<T> {

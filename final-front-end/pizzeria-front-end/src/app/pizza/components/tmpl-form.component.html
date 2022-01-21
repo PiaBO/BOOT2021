@@ -1,0 +1,56 @@
+<button class="btn btn-back btn-submit" (click)="VM.cancel()">
+  <i class="pi pi-arrow-left"></i>
+</button>
+<section class="login">
+  <article class="card-login">
+    <form #miForm="ngForm" class="form" action="#">
+      <h2>Edit Pizza</h2>
+      <label for="id">ID</label>
+      <input id="id" type="text" name="id" [(ngModel)]="VM.Elemento.id" #id="ngModel" required autofocus />
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" [(ngModel)]="VM.Elemento.name" #name="ngModel" required autofocus />
+      <label for="price">Price</label>
+      <input id="price" name="price" type="number" [(ngModel)]="VM.Elemento.price" #price="ngModel" required
+        autofocus />
+      <label for="base" class="">Base</label>
+      <div class="ingredients">
+        <div class="tag">
+          <label for="fine">fina</label>
+          <input type="checkbox" id="fina" name="fina" value="fina" checked />
+        </div>
+        <div class="tag">
+          <label for="gruesa">gruesa</label>
+          <input type="checkbox" id="gruesa" name="gruesa" value="gruesa" />
+        </div>
+        <div class="tag"><label for="sin gluten">doble</label>
+          <input type="checkbox" id="doble" name="doble" value="doble" />
+        </div>
+      </div>
+      <label for="base" class="">Salsa</label>
+      <div class="ingredients">
+        <div class="tag">
+          <label for="tomate">tomate</label>
+          <input type="checkbox" id="tomate" name="tomate" value="tomate" checked />
+        </div>
+        <div class="tag">
+          <label for="pesto">pesto</label>
+          <input type="checkbox" id="pesto" name="pesto" value="pesto" />
+        </div>
+        <div class="tag">
+          <label for="barbacoa">barbacoa</label>
+          <input type="checkbox" id="barbacoa" name="barbacoa" value="barbacoa" />
+        </div>
+      </div>
+      <!-- TO DO: componente con los ingredientes (app-ingredient-recipe) -->
+      <label for="ingr" class="">Ingredients</label>
+      <div class="ingredients">
+        <div *ngFor="let item of VM.Elemento.ingredients" class="tag">
+          <label for="{{ item.name }}">{{ item.name }}</label>
+          <input type="checkbox" id="{{ item.name }}" name="{{ item.name }}" value="{{ item.name }}"
+            [(ngModel)]="item.name" #{{item.name}}="ngModel" checked />
+        </div>
+      </div>
+      <input class="btn btn-submit" type="button" (click)="VM.send()" (cancel)="VM.cancel()" value="SAVE" />
+    </form>
+  </article>
+</section>

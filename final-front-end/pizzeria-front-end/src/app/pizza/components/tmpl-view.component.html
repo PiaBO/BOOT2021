@@ -1,0 +1,92 @@
+<div class="page-title">
+  <h1 class="heading-primary-main">{{VM.Elemento.name}}</h1>
+</div>
+<section class="cards-solo">
+  <article class="card card-solo" onclick="location.href='pizza.html'">
+    <img src="{{VM.Elemento.image}}" alt="Neapolitan" width="300" />
+  </article>
+  <article
+    class="card card-solo card-product">
+    <p>All our pizzas are made with natural and local ingredients.</p>
+
+    Recipe:
+    <div class="ingredients-container-solo">
+      <span *ngFor="let ing of VM.Elemento.ingredients">{{ ing.name }}</span>
+    </div>
+
+    <div class="card-footer">
+      <div class="rating">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+      </div>
+      <div class="price"><span>Price: 7,50€</span></div>
+    </div>
+    <button>Buy</button>
+  </article>
+</section>
+<div class="page-title title-second">
+  <h1 class="heading-primary-main">Your opinion is important</h1>
+</div>
+<section class="comment-area">
+  <form action="">
+    <h2 class="comment-h2"><span class="fa fa-edit"></span> Comment</h2>
+    <textarea
+      class="comment-textarea input"
+      name=""
+      id=""
+      cols="30"
+      rows="10"
+      placeholder="Write your opinion..."
+    ></textarea>
+    <button class="btn btn-white btn-animated btn-comment">Send</button>
+  </form>
+</section>
+<section class="comment-section">
+  <article class="comment">
+    <div class="rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <h2>User 1 <span class="comment-date">- 22/12/2021</span></h2>
+    <p>Fast delivery, and it was delicious!</p>
+  </article>
+  <article class="comment">
+    <div class="rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <h2>User 2 <span class="comment-date">- 22/12/2021</span></h2>
+    <p>Fast delivery, and it was delicious!</p>
+  </article>
+  <article class="comment">
+    <div class="rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star"></span>
+      <span class="fa fa-star"></span>
+    </div>
+    <h2>User 3 <span class="comment-date">- 22/12/2021</span></h2>
+    <p>Fast delivery, and it was delicious!</p>
+  </article>
+  <article class="comment">
+    <div class="rating">
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+      <span class="fa fa-star checked"></span>
+    </div>
+    <h2>User 4 <span class="comment-date">- 22/12/2021</span></h2>
+    <p>Fast delivery, and it was delicious!</p>
+  </article>
+</section>

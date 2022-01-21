@@ -1,4 +1,4 @@
-<button class="btn" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
+<button class="btn btn-back btn-submit" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
 <h1 class="heading-primary-main">Ingredients</h1>
 <table>
   <thead>
@@ -17,8 +17,8 @@
       <td data-label="type">Ingredient</td>
       <td data-label="price">{{ VM.Elemento.price }}</td>
       <td data-label="Action">
-        <button class="btn" (click)="VM.view(VM.Elemento.id)">
-          <i class="pi pi-eye"></i>
+        <button class="btn" [routerLink]="['edit']">
+          <i class="pi pi-pencil"></i>
         </button>
         <!-- <button class="btn" [routerLink]="[VM.Elemento.id]"><i class="pi pi-eye"></i></button>
         <button class="btn" [routerLink]="[VM.Elemento.id, 'edit']"><i class="pi pi-pencil"></i></button> -->

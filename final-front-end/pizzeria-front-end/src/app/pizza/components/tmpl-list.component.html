@@ -1,0 +1,16 @@
+
+<div class="page-title">
+  <h1 class="heading-primary-main">What would you like to eat?</h1>
+</div>
+<section class="cards">
+  <article *ngFor="let item of VM.Listado" class="card" title="Pulse aquí para ver más detalles">
+      <img src="{{item.image}}" alt="Chicago" height="300" width="300" />
+      <h2>{{item.name}}</h2>
+      <div class="price"><span>{{item.price}}€</span></div>
+      <p class="left">Recipe:</p>
+      <div class="ingredients-container">
+        <span *ngFor="let ing of item.ingredients">{{ing.name}}</span>
+    </div>
+      <p><button [routerLink]="[item.id]">Buy</button></p>
+  </article>
+</section>
