@@ -12,7 +12,7 @@
     <ul class="horizontal navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item" *ngFor="let item of menu; let indice=index;">
         <button class="btn-menu btn-link nav-link" [class.active]="item.componente === actual" type="button"
-          (click)="seleccionar(indice)"><i class="fas fa-{{item.icono}}"></i> {{item.texto}}</button>
+         [routerLink]="['/ingredients']" routerLinkActive="active">Ingredients</button>
       </li>
     </ul>
   </div>

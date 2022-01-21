@@ -29,7 +29,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     MessageModule,
     TabMenuModule,
-    IngredientModule,
     PizzaModule,
     CommentModule,
     OrdersModule,

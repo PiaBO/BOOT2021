@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IngredientComponent, INGREDIENT_COMPONENTS } from './components/ingredient.component';
+import { IngredientComponent, IngredientEditComponent, IngredientListComponent, IngredientViewComponent, INGREDIENT_COMPONENTS } from './components/ingredient.component';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import {TableModule} from 'primeng/table';
 
-
+const routes: Routes = [
+  { path: '', component: IngredientListComponent},
+  // { path: 'add', component: Ingredient},
+  { path: ':id/edit', component: IngredientEditComponent},
+  { path: ':id', component: IngredientViewComponent},
+];
 
 @NgModule({
   declarations: [
@@ -14,7 +19,7 @@ import {TableModule} from 'primeng/table';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild([]),
+    RouterModule.forChild(routes),
     TableModule
   ],
   exports:[INGREDIENT_COMPONENTS]

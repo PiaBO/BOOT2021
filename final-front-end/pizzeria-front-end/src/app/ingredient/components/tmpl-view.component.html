@@ -1,27 +1,32 @@
 <button class="btn" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
-<div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>TYPE</th>
-        <th>PRICE</th>
-        <th>ACTION</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ VM.Elemento.id }}</td>
-        <td>{{ VM.Elemento.name }}</td>
-        <td>Ingredient</td>
-        <td>{{ VM.Elemento.price }} €</td>
-        <td class="botonera">
-          <button class="btn"><i class="pi pi-pencil" (click)="VM.edit(VM.Elemento.id)"></i></button>
-          <button class="btn"><i class="pi pi-trash"></i></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h1 class="heading-primary-main">Ingredients</h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">TYPE</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="id">{{ VM.Elemento.id }}</td>
+      <td data-label="name">{{ VM.Elemento.name }}</td>
+      <td data-label="type">Ingredient</td>
+      <td data-label="price">{{ VM.Elemento.price }}</td>
+      <td data-label="Action">
+        <button class="btn" (click)="VM.view(VM.Elemento.id)">
+          <i class="pi pi-eye"></i>
+        </button>
+        <!-- <button class="btn" [routerLink]="[VM.Elemento.id]"><i class="pi pi-eye"></i></button>
+        <button class="btn" [routerLink]="[VM.Elemento.id, 'edit']"><i class="pi pi-pencil"></i></button> -->
+        <button class="btn" (click)="VM.delete(VM.Elemento.id)">
+          <i class="pi pi-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 

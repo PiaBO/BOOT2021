@@ -15,6 +15,7 @@ export class IngredientsDAOService extends RESTDAOService<any, any> {
   //TO DO: seguridad, controlar rol user
   constructor(http: HttpClient) {
     super(http, 'ingredients', { });
+    //super(http, 'ingredients', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
 }
 
@@ -26,11 +27,17 @@ export class IngredientViewModelService {
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
+  protected listURL = '/ingredients';
 
-  //TO DO: sistema de notificaciones
+  // TO DO:
+  // sistema de notificaciones
+  // servicio de auth
+  // private navigation: NavigationService (common-services)
   constructor(/*protected notify: NotificationService,*/
     protected out: LoggerService,
-    protected dao: IngredientsDAOService) { }
+    protected dao: IngredientsDAOService,
+    protected router: Router,
+    ) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
@@ -71,7 +78,7 @@ export class IngredientViewModelService {
   public delete(key: any): void {
     if (!window.confirm('¿Seguro?')) { return; }
     this.dao.remove(key).subscribe({
-      next: data => /*this.load(),*/  this.list(),
+      next: data =>this.list(),
       error: err =>this.out.error(err.message)
     });
   }
@@ -83,7 +90,7 @@ export class IngredientViewModelService {
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    this.router.navigateByUrl(this.listURL);
   }
   public send(): void {
     switch (this.modo) {
